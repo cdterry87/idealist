@@ -15,10 +15,8 @@ class CreateHistoryTable extends Migration
     {
         Schema::create('history', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id')->index();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('idea_id')->index();
-            $table->foreign('idea_id')->references('id')->on('ideas');
+            $table->integer('user_id')->unsigned();
+            $table->integer('idea_id')->unsigned();
             $table->timestamps();
         });
     }
