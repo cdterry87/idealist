@@ -14,6 +14,8 @@
                     <a class="navbar-link"><i class="fas fa-user-circle"></i>Chase Terry</a>
                     <div class="navbar-dropdown">
                         <a class="navbar-item"><i class="fas fa-cogs"></i> Settings</a>
+                        <a class="navbar-item"><i class="fas fa-star"></i> Favorites</a>
+                        <a class="navbar-item"><i class="fas fa-history"></i> History</a>
                         <hr class="navbar-divider">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

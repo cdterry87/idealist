@@ -12,8 +12,6 @@
                 <hr>
                 <div class="field has-addons">
                     <div class="control has-icons-left is-expanded">
-                        {{-- <input type="text" class="input is-medium" name="idea" id="idea" placeholder="This could be your best idea yet!">
-                        <span class="icon is-left"><i class="fas fa-lightbulb"></i></span> --}}
                         <textarea name="idea" id="idea" class="textarea" rows="2" placeholder="This could be your best idea yet!"></textarea>
                     </div>
                 </div>
