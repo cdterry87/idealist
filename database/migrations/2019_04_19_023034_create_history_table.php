@@ -15,8 +15,8 @@ class CreateHistoryTable extends Migration
     {
         Schema::create('history', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('idea_id')->unsigned();
+            $table->bigInteger('user_id', false, true);
+            $table->bigInteger('idea_id', false, true);
             $table->timestamps();
         });
     }
