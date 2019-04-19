@@ -1,8 +1,11 @@
 html,
 body {
   height: 100%;
-  background-color: #f3f6f9;
-  background-size: cover;
+}
+
+#main {
+  min-height: 100%;
+  background-color: #edf1f3;
 }
 
 i.fas {
@@ -10,15 +13,7 @@ i.fas {
 }
 
 .navbar {
-  margin-bottom: 1rem;
-}
-
-.navbar.is-transparent {
-  background-color: transparent;
-  background-image: none;
-}
-
-.navbar {
+  margin-bottom: 0.75rem;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
 
