@@ -1,33 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
+
+@include('layouts.nav')
+
 <div class="container">
-    <h1 class="title has-text-centered">Idealist - Where great ideas come to light!</h1>
     <div class="columns">
         <div class="column is-half">
             <div class="box">
-                <h2 class="subtitle">Submit your ideas!</h2>
+                <h2 class="title is-5 has-text-centered">Submit your ideas!</h2>
+                <hr>
                 <div class="field has-addons">
                     <div class="control has-icons-left is-expanded">
-                        <input type="text" class="input is-medium" placeholder="This could be your best idea yet!">
-                        <span class="icon is-left"><i class="fas fa-lightbulb"></i></span>
+                        {{-- <input type="text" class="input is-medium" name="idea" id="idea" placeholder="This could be your best idea yet!">
+                        <span class="icon is-left"><i class="fas fa-lightbulb"></i></span> --}}
+                        <textarea name="idea" id="idea" class="textarea" rows="2" placeholder="This could be your best idea yet!"></textarea>
                     </div>
+                </div>
+                <div class="control">
                     <div class="control">
-                        <button class="button is-info is-medium">Submit</button>
+                        <button class="button is-info is-fullwidth">Submit</button>
                     </div>
                 </div>
             </div>
             <div class="box">
-                <h2 class="subtitle">Cast your votes!</h2>
+                <h2 class="title is-5 has-text-centered">Cast your votes!</h2>
+                <hr>
                 <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
                     <div class="media-content">
                         <div class="content">
-
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus leo nec massa viverra, et scelerisque ante vestibulum.
                         </div>
                     </div>
                     <div class="media-right">
@@ -37,45 +39,8 @@
                         <span class="icon is-small">
                             <i class="fa fa-arrow-down"></i>
                         </span>
-                    </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="media-right">
                         <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
-                        </span>
-                    </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="media-right">
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
+                            <i class="fa fa-star"></i>
                         </span>
                     </div>
                 </article>
@@ -83,104 +48,22 @@
         </div>
         <div class="column is-half">
             <div class="box">
-                <h2 class="subtitle">Top ideas</h2>
+                <h2 class="title is-5 has-text-centered">Top ideas</h2>
+                <hr>
                 <article class="media">
                     <figure class="media-left">
-                        <p class="image is-64x64">
+                        <p class="image is-32x32">
                             <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
-
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus leo nec massa viverra, et scelerisque ante vestibulum.
                         </div>
                     </div>
                     <div class="media-right">
                         <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
-                        </span>
-                    </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="media-right">
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
-                        </span>
-                    </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="media-right">
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
-                        </span>
-                    </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="media-right">
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
-                        </span>
-                    </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="media-right">
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-up"></i>
-                        </span>
-                        <span class="icon is-small">
-                            <i class="fa fa-arrow-down"></i>
+                            <i class="fa fa-star"></i>
                         </span>
                     </div>
                 </article>

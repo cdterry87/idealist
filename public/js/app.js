@@ -13481,7 +13481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('truncate', function (string) {
-  var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
+  var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 150;
   if (!string) return '';
   string = string.toString();
   return _.truncate(string, {
