@@ -14,4 +14,9 @@ class Idea extends Model
     protected $fillable = [
         'idea', 'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
