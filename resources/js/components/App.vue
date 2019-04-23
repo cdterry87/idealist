@@ -30,8 +30,5 @@ export default {
         RateIdeas,
         TopIdeas
     },
-    created() {
-        console.log('app')
-    }
 }
 </script>
