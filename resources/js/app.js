@@ -9,6 +9,9 @@ Vue.filter('truncate', function (string, length = 150) {
     return _.truncate(string, { length })
 });
 
+import App from './components/App'
+
 const app = new Vue({
     el: '#app',
+    components: { App },
 });
