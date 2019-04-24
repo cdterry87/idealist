@@ -49,12 +49,17 @@ class NewIdeaTest extends TestCase
         $ideaId = json_decode($this->post('/idea', $attributes)
             ->getContent())
             ->id;
-        
+
         $this->post('/upvote/' . $ideaId);
 
         $idea = Idea::where(['id' => $ideaId])->first();
 
         $this->assertEquals(1, $idea->votes);
+
+        $this->assertDatabaseHas('votes', [
+            'idea_id' => $ideaId,
+            'user_id' => auth()->id(),
+        ]);
     }
 
     /** @test */
@@ -69,11 +74,16 @@ class NewIdeaTest extends TestCase
         $ideaId = json_decode($this->post('/idea', $attributes)
             ->getContent())
             ->id;
-        
+
         $this->post('/downvote/' . $ideaId);
 
         $idea = Idea::where(['id' => $ideaId])->first();
 
         $this->assertEquals(-1, $idea->votes);
+
+        $this->assertDatabaseHas('votes', [
+            'idea_id' => $ideaId,
+            'user_id' => auth()->id(),
+        ]);
     }
 }
