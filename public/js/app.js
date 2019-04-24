@@ -363,7 +363,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Idea',
-  props: ['vote']
+  props: ['vote', 'idea']
 });
 
 /***/ }),
@@ -391,6 +391,26 @@ __webpack_require__.r(__webpack_exports__);
   name: 'RateIdeas',
   components: {
     Idea: _Idea__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      user: '',
+      ideas: []
+    };
+  },
+  methods: {
+    getVoteableIdeas: function getVoteableIdeas() {
+      var _this = this;
+
+      axios.get('api/ideas/top').then(function (response) {
+        _this.ideas = response.data;
+      })["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getVoteableIdeas();
   }
 });
 
@@ -449,8 +469,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TopIdeas',
+  data: function data() {
+    return {
+      user: '',
+      ideas: []
+    };
+  },
   components: {
     Idea: _Idea__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    getTopIdeas: function getTopIdeas() {
+      var _this = this;
+
+      axios.get('api/ideas/top').then(function (response) {
+        _this.ideas = response.data;
+      })["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getTopIdeas();
   }
 });
 
@@ -1705,7 +1745,11 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _c("div", { staticClass: "media-content" }, [
+      _c("div", { staticClass: "content" }, [
+        _vm._v("\n            " + _vm._s(_vm.idea.idea) + "\n        ")
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "media-right" }, [
       _vm.vote == true
@@ -1720,23 +1764,11 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(0)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "media-content" }, [
-      _c("div", { staticClass: "content" }, [
-        _vm._v(
-          "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus leo nec massa viverra, et scelerisque ante vestibulum.\n        "
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -1777,9 +1809,11 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("Idea", { attrs: { vote: true } })
+      _vm._l(_vm.ideas, function(idea) {
+        return _c("Idea", { key: idea.id, attrs: { vote: true, idea: idea } })
+      })
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -1873,9 +1907,11 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("Idea", { attrs: { vote: false } })
+      _vm._l(_vm.ideas, function(idea) {
+        return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
+      })
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []

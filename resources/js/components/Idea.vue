@@ -7,7 +7,7 @@
         </figure>
         <div class="media-content">
             <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus leo nec massa viverra, et scelerisque ante vestibulum.
+                {{ idea.idea }}
             </div>
         </div>
         <div class="media-right">
@@ -27,6 +27,6 @@
 <script>
 export default {
     name: 'Idea',
-    props: ['vote'],
+    props: ['vote', 'idea'],
 }
 </script>
