@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import EventBus from './../eventbus'
 import Idea from './Idea'
 
 export default {
@@ -30,6 +31,11 @@ export default {
                 console.log(error.response.data.error);
             });
         },
+    },
+    created() {
+        EventBus.$on('ideaSubmitted', idea => {
+            this.ideas.push(idea)
+        })
     },
     mounted() {
         this.getTopIdeas()

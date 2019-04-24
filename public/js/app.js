@@ -374,7 +374,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
+/* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
 //
 //
 //
@@ -384,10 +385,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'RateIdeas',
   components: {
-    Idea: _Idea__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Idea: _Idea__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -406,6 +408,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
+  created: function created() {
+    var _this2 = this;
+
+    _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaSubmitted', function (idea) {
+      _this2.ideas.push(idea);
+    });
+  },
   mounted: function mounted() {
     this.getVoteableIdeas();
   }
@@ -422,6 +431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
 //
 //
 //
@@ -441,6 +451,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SubmitIdeas',
   data: function data() {
@@ -454,7 +465,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('idea', {
         idea: idea
       }).then(function (response) {
-        var data = response.data.data;
+        var idea = response.data;
+        _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('ideaSubmitted', idea);
       });
       this.idea = '';
     }
@@ -472,7 +484,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
+/* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
 //
 //
 //
@@ -481,6 +494,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TopIdeas',
@@ -491,7 +505,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    Idea: _Idea__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Idea: _Idea__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
     getTopIdeas: function getTopIdeas() {
@@ -503,6 +517,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error.response.data.error);
       });
     }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaSubmitted', function (idea) {
+      _this2.ideas.push(idea);
+    });
   },
   mounted: function mounted() {
     this.getTopIdeas();
@@ -14449,6 +14470,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TopIdeas_vue_vue_type_template_id_6c4a35f2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/eventbus.js":
+/*!**********************************!*\
+  !*** ./resources/js/eventbus.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
+/* harmony default export */ __webpack_exports__["default"] = (EventBus);
 
 /***/ }),
 
