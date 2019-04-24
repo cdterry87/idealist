@@ -21,14 +21,10 @@ import TopIdeas from './TopIdeas';
 
 export default {
     name: 'App',
-    data () {
-        return {
-        }
-    },
     components: {
         SubmitIdeas,
         RateIdeas,
         TopIdeas
-    },
+    }
 }
 </script>

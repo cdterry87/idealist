@@ -21,6 +21,9 @@ export default {
         Idea
     },
     methods: {
+        getUserData() {
+            // this.userData = JSON.parse(localStorage.getItem('userData'))
+        },
         getTopIdeas() {
             axios.get('api/ideas/top')
             .then(response => {
@@ -31,7 +34,13 @@ export default {
             });
         },
     },
+    created() {
+        this.getUserData()
+    },
     mounted() {
+        // axios.defaults.headers.common['Content-Type'] = 'application/json'
+        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.userData.jwt
+
         this.getTopIdeas()
     }
 }
