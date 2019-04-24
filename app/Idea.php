@@ -19,14 +19,4 @@ class Idea extends Model
     {
         return $this->belongsTo('App\User');
     }
-
-    public function upVote()
-    {
-        
-    }
-
-    public function downVote()
-    {
-
-    }
 }

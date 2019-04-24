@@ -12,7 +12,7 @@ class NewIdeaTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function an_idea_can_be_created()
+    public function a_signed_in_user_can_create_ideas()
     {
         $this->signIn();
 
@@ -22,8 +22,58 @@ class NewIdeaTest extends TestCase
 
         $response = $this->post('/idea', $attributes);
 
-        $idea = Idea::where($attributes)->first();
-
         $this->assertDatabaseHas('ideas', $attributes);
+    }
+
+    /** @test */
+    public function a_guest_cannot_create_an_idea()
+    {
+        $attributes = [
+            'idea' => 'Something overthought and underdone'
+        ];
+
+        $response = $this->post('/idea', $attributes);
+
+        $this->assertDatabaseMissing('ideas', $attributes);
+    }
+
+    /** @test */
+    public function a_signed_in_user_can_upvote_an_idea()
+    {
+        $this->signIn();
+
+        $attributes = [
+            'idea' => 'Something overthought and underdone'
+        ];
+
+        $ideaId = json_decode($this->post('/idea', $attributes)
+            ->getContent())
+            ->id;
+        
+        $this->post('/upvote/' . $ideaId);
+
+        $idea = Idea::where(['id' => $ideaId])->first();
+
+        $this->assertEquals(1, $idea->votes);
+    }
+
+    /** @test */
+    public function a_signed_in_user_can_downvote_an_idea()
+    {
+        $this->signIn();
+
+        $attributes = [
+            'idea' => 'Something overthought and underdone'
+        ];
+
+        $ideaId = json_decode($this->post('/idea', $attributes)
+            ->getContent())
+            ->id;
+        
+        $this->post('/downvote/' . $ideaId);
+
+        $idea = Idea::where(['id' => $ideaId])->first();
+
+        $this->assertEquals(-1, $idea->votes);
     }
 }
