@@ -11,7 +11,7 @@
         <div id="navbarTop" class="navbar-menu">
             <div class="navbar-end">
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link"><i class="fas fa-user-circle"></i>Chase Terry</a>
+                    <a class="navbar-link"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
                     <div class="navbar-dropdown">
                         <a href="/settings" class="navbar-item"><i class="fas fa-cogs"></i> Settings</a>
                         <a href="/myideas" class="navbar-item"><i class="fas fa-lightbulb"></i> My Ideas</a>
