@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import EventBus from './../eventbus'
+
 export default {
     name: 'SubmitIdeas',
     data() {
@@ -31,7 +33,9 @@ export default {
 
             axios.post('idea', { idea })
             .then(response => {
-                let data = response.data.data
+                let idea = response.data
+
+                EventBus.$emit('ideaSubmitted', idea)
             })
 
             this.idea = ''
