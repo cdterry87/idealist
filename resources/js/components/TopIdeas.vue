@@ -25,7 +25,7 @@ export default {
             // this.userData = JSON.parse(localStorage.getItem('userData'))
         },
         getTopIdeas() {
-            axios.get('api/ideas/top')
+            axios.get('ideas/top')
             .then(response => {
                 this.ideas = response.data
             })

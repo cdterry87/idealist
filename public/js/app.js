@@ -401,7 +401,7 @@ __webpack_require__.r(__webpack_exports__);
     getVoteableIdeas: function getVoteableIdeas() {
       var _this = this;
 
-      axios.get('api/ideas/top').then(function (response) {
+      axios.get('ideas/top').then(function (response) {
         _this.ideas = response.data;
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -488,7 +488,7 @@ __webpack_require__.r(__webpack_exports__);
     getTopIdeas: function getTopIdeas() {
       var _this = this;
 
-      axios.get('api/ideas/top').then(function (response) {
+      axios.get('ideas/top').then(function (response) {
         _this.ideas = response.data;
       })["catch"](function (error) {
         console.log(error.response.data.error);

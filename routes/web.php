@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/idea', 'IdeaController@store');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/idea', 'IdeaController@store');
+    Route::get('/ideas/top', 'IdeaController@top');
+    Route::get('/ideas/voteable', 'IdeaController@voteable');
+});

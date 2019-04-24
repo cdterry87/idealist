@@ -13,7 +13,3 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('/ideas/top', 'IdeaController@top');
-    Route::get('/ideas/voteable', 'IdeaController@voteable');
-// });
