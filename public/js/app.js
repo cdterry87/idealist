@@ -396,8 +396,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getUserData: function getUserData() {// this.userData = JSON.parse(localStorage.getItem('userData'))
-    },
     getVoteableIdeas: function getVoteableIdeas() {
       var _this = this;
 
@@ -408,12 +406,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  created: function created() {
-    this.getUserData();
-  },
   mounted: function mounted() {
-    // axios.defaults.headers.common['Content-Type'] = 'application/json'
-    // axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.userData.jwt
     this.getVoteableIdeas();
   }
 });
@@ -501,8 +494,6 @@ __webpack_require__.r(__webpack_exports__);
     Idea: _Idea__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    getUserData: function getUserData() {// this.userData = JSON.parse(localStorage.getItem('userData'))
-    },
     getTopIdeas: function getTopIdeas() {
       var _this = this;
 
@@ -513,12 +504,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  created: function created() {
-    this.getUserData();
-  },
   mounted: function mounted() {
-    // axios.defaults.headers.common['Content-Type'] = 'application/json'
-    // axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.userData.jwt
     this.getTopIdeas();
   }
 });
