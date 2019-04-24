@@ -446,8 +446,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'SubmitIdeas'
+  name: 'SubmitIdeas',
+  data: function data() {
+    return {
+      idea: ''
+    };
+  },
+  methods: {
+    submitIdea: function submitIdea() {
+      var idea = this.idea;
+      axios.post('idea', {
+        idea: idea
+      }).then(function (response) {
+        var data = response.data.data;
+      });
+      this.idea = '';
+    }
+  }
 });
 
 /***/ }),
@@ -1849,39 +1867,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "box" }, [
+    _c(
+      "form",
+      {
+        attrs: { method: "POST" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submitIdea($event)
+          }
+        }
+      },
+      [
+        _c("h2", { staticClass: "title is-5 has-text-centered" }, [
+          _vm._v("Submit your ideas!")
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "field has-addons" }, [
+          _c("div", { staticClass: "control has-icons-left is-expanded" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.idea,
+                  expression: "idea"
+                }
+              ],
+              staticClass: "textarea",
+              attrs: {
+                name: "idea",
+                id: "idea",
+                rows: "2",
+                placeholder: "This could be your best idea yet!"
+              },
+              domProps: { value: _vm.idea },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.idea = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box" }, [
-      _c("h2", { staticClass: "title is-5 has-text-centered" }, [
-        _vm._v("Submit your ideas!")
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "field has-addons" }, [
-        _c("div", { staticClass: "control has-icons-left is-expanded" }, [
-          _c("textarea", {
-            staticClass: "textarea",
-            attrs: {
-              name: "idea",
-              id: "idea",
-              rows: "2",
-              placeholder: "This could be your best idea yet!"
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
+    return _c("div", { staticClass: "control" }, [
       _c("div", { staticClass: "control" }, [
-        _c("div", { staticClass: "control" }, [
-          _c("button", { staticClass: "button is-info is-fullwidth" }, [
-            _vm._v("Submit")
-          ])
+        _c("button", { staticClass: "button is-info is-fullwidth" }, [
+          _vm._v("Submit")
         ])
       ])
     ])
