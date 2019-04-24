@@ -13,9 +13,10 @@
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link"><i class="fas fa-user-circle"></i>Chase Terry</a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item"><i class="fas fa-cogs"></i> Settings</a>
-                        <a class="navbar-item"><i class="fas fa-star"></i> Favorites</a>
-                        <a class="navbar-item"><i class="fas fa-history"></i> History</a>
+                        <a href="/settings" class="navbar-item"><i class="fas fa-cogs"></i> Settings</a>
+                        <a href="/myideas" class="navbar-item"><i class="fas fa-lightbulb"></i> My Ideas</a>
+                        <a href="/favorites" class="navbar-item"><i class="fas fa-star"></i> Favorites</a>
+                        <a href="/history" class="navbar-item"><i class="fas fa-history"></i> History</a>
                         <hr class="navbar-divider">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

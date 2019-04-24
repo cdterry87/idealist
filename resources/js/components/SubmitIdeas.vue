@@ -1,6 +1,6 @@
 <template>
     <div class="box">
-        <form method="POST" @submit.prevent="submitIdea">
+        <form action="/idea" method="POST" @submit.prevent="submitIdea">
             <h2 class="title is-5 has-text-centered">Submit your ideas!</h2>
             <hr>
             <div class="field has-addons">
