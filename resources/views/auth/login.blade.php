@@ -3,13 +3,19 @@
 @section('content')
 <div id="main">
     <div class="container">
-        <div class="hero">
+        <div>
             <div class="hero-body">
                 <div class="columns">
-                    <div class="column is-4 is-offset-4">
+                    <div class="column is-6 is-offset-3">
                         <div class="box">
                             <h1 class="title is-4 has-text-centered "><i class="fas fa-lightbulb"></i>Idealist</h1>
-                            <h3 class="subtitle is-6 has-text-centered">Login to share ideas!</h3>
+
+                            <div class="tabs is-fullwidth">
+                                <ul>
+                                    <li class="is-active"><a href="/login">Login</a></li>
+                                    <li><a href="/register">Register</a></li>
+                                </ul>
+                            </div>
 
                             @include('layouts.errors')
 

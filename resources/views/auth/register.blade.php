@@ -3,13 +3,19 @@
 @section('content')
 <div id="main">
     <div class="container">
-        <div class="hero">
+        <div>
             <div class="hero-body">
                 <div class="columns">
                     <div class="column is-6 is-offset-3">
                         <div class="box">
                             <h1 class="title is-4 has-text-centered "><i class="fas fa-lightbulb"></i>Idealist</h1>
-                            <h3 class="subtitle is-6 has-text-centered">Register for an account!</h3>
+
+                            <div class="tabs is-centered is-fullwidth">
+                                <ul>
+                                    <li><a href="/login">Login</a></li>
+                                    <li class="is-active"><a href="/register">Register</a></li>
+                                </ul>
+                            </div>
 
                             @include('layouts.errors')
 
@@ -44,8 +50,6 @@
                                         <button type="submit" class="button is-info">
                                             {{ __('Register') }}
                                         </button>
-                                        or
-                                        <a href="/login" class="button is-link">Login</a>
                                     </div>
                                 </div>
                             </form>
