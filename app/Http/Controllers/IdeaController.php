@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Idea;
+use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
@@ -90,5 +90,26 @@ class IdeaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Returns the top voted ideas.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function top()
+    {
+        return response()->json(Idea::all()->toArray());
+    }
+
+    /**
+     * Returns the ideas a user has yet to
+     * vote on.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function voteable()
+    {
+        return response()->json(Idea::all()->toArray());
     }
 }

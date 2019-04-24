@@ -1,7 +1,7 @@
 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/home"><span><i class="fas fa-lightbulb"></i></span> Idealist</a>
+            <a class="navbar-item" href="/"><span><i class="fas fa-lightbulb"></i></span> Idealist</a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTop">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
