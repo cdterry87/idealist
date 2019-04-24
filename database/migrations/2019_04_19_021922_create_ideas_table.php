@@ -17,7 +17,7 @@ class CreateIdeasTable extends Migration
             $table->bigIncrements('id');
             $table->string('idea', 250);
             $table->unsignedInteger('user_id')->index();
-            $table->integer('votes')->index();
+            $table->integer('votes')->index()->default(0);
             $table->timestamps();
         });
     }
