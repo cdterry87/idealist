@@ -358,9 +358,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Idea',
-  props: ['vote', 'idea']
+  props: ['vote', 'idea'],
+  methods: {
+    upvote: function upvote(id) {
+      var vm = this;
+      axios.post('upvote/' + id).then(function (response) {})["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    },
+    downvote: function downvote(id) {
+      var vm = this;
+      axios.post('downvote/' + id).then(function (response) {})["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -1789,18 +1806,42 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "media-right" }, [
       _vm.vote == true
-        ? _c("span", { staticClass: "icon is-small" }, [
-            _c("i", { staticClass: "fa fa-arrow-up" })
-          ])
+        ? _c(
+            "span",
+            {
+              staticClass: "icon is-small",
+              on: {
+                click: function($event) {
+                  return _vm.upvote(_vm.idea.id)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-arrow-circle-up" })]
+          )
         : _vm._e(),
       _vm._v(" "),
       _vm.vote == true
-        ? _c("span", { staticClass: "icon is-small" }, [
-            _c("i", { staticClass: "fa fa-arrow-down" })
-          ])
+        ? _c(
+            "span",
+            {
+              staticClass: "icon is-small",
+              on: {
+                click: function($event) {
+                  return _vm.downvote(_vm.idea.id)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-arrow-circle-down" })]
+          )
         : _vm._e(),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.vote == false
+        ? _c("span", { staticClass: "icon is-small" }, [
+            _vm._v("\n            " + _vm._s(_vm.idea.votes) + "\n        ")
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -1909,7 +1950,8 @@ var render = function() {
                 name: "idea",
                 id: "idea",
                 rows: "2",
-                placeholder: "This could be your best idea yet!"
+                placeholder: "This could be your best idea yet!",
+                maxlength: "250"
               },
               domProps: { value: _vm.idea },
               on: {

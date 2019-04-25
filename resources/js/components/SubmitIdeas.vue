@@ -5,7 +5,7 @@
             <hr>
             <div class="field has-addons">
                 <div class="control has-icons-left is-expanded">
-                    <textarea name="idea" id="idea" v-model="idea" class="textarea" rows="2" placeholder="This could be your best idea yet!"></textarea>
+                    <textarea name="idea" id="idea" v-model="idea" class="textarea" rows="2" placeholder="This could be your best idea yet!" maxlength="250"></textarea>
                 </div>
             </div>
             <div class="control">

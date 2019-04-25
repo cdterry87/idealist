@@ -41,6 +41,7 @@ class IdeaController extends Controller
 
         $idea = Idea::create([
             'idea' => request('idea'),
+            'votes' => 0,
             'user_id' => auth()->id(),
         ]);
 
