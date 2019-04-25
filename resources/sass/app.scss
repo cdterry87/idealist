@@ -17,12 +17,8 @@ i.fas {
 }
 
 .media-right {
-    .icon {
+    .icon, .tag {
         margin: 0 4px;
+        cursor: pointer;
     }
-}
-
-.media .icon {
-    cursor: pointer;
-    font-size: 1.25rem;
 }

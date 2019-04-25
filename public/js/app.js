@@ -332,6 +332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
 //
 //
 //
@@ -361,19 +362,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Idea',
   props: ['vote', 'idea'],
   methods: {
     upvote: function upvote(id) {
-      var vm = this;
-      axios.post('upvote/' + id).then(function (response) {})["catch"](function (error) {
+      axios.post('upvote/' + id).then(function (response) {
+        var idea = response.data;
+        console.log('idea', idea);
+        _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('ideaVoted', idea);
+      })["catch"](function (error) {
         console.log(error.response.data.error);
       });
     },
     downvote: function downvote(id) {
-      var vm = this;
-      axios.post('downvote/' + id).then(function (response) {})["catch"](function (error) {
+      axios.post('downvote/' + id).then(function (response) {
+        var idea = response.data;
+        _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('ideaVoted', idea);
+      })["catch"](function (error) {
         console.log(error.response.data.error);
       });
     }
@@ -541,6 +550,25 @@ __webpack_require__.r(__webpack_exports__);
     _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaSubmitted', function (idea) {
       _this2.ideas.push(idea);
     });
+    _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaVoted', function (idea) {
+      // Remove the previous idea from the array
+      var removeIdea = _this2.ideas.find(function (rmIdea) {
+        return rmIdea.id === idea.id;
+      });
+
+      _this2.ideas = _this2.ideas.filter(function (obj) {
+        return obj.id !== removeIdea.id;
+      }); // Add the new idea to the array
+
+      _this2.ideas.push(idea);
+    });
+  },
+  computed: {
+    sortedIdeas: function sortedIdeas() {
+      return this.ideas.sort(function (a, b) {
+        return b.votes - a.votes;
+      });
+    }
   },
   mounted: function mounted() {
     this.getTopIdeas();
@@ -1839,7 +1867,11 @@ var render = function() {
       _vm._v(" "),
       _vm.vote == false
         ? _c("span", { staticClass: "icon is-small" }, [
-            _vm._v("\n            " + _vm._s(_vm.idea.votes) + "\n        ")
+            _c("div", { staticClass: "tag" }, [
+              _vm._v(
+                "\n                " + _vm._s(_vm.idea.votes) + "\n            "
+              )
+            ])
           ])
         : _vm._e()
     ])
@@ -2016,7 +2048,7 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm._l(_vm.ideas, function(idea) {
+      _vm._l(_vm.sortedIdeas, function(idea) {
         return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
       })
     ],

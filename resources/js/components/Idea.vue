@@ -21,38 +21,43 @@
                 <i class="fa fa-star"></i>
             </span>
             <span class="icon is-small" v-if="vote == false">
-                {{ idea.votes }}
+                <div class="tag">
+                    {{ idea.votes }}
+                </div>
             </span>
         </div>
     </article>
 </template>
 
 <script>
+import EventBus from './../eventbus'
 
 export default {
     name: 'Idea',
     props: ['vote', 'idea'],
     methods: {
         upvote(id) {
-            let vm = this;
-
             axios.post('upvote/' + id)
             .then(response => {
+                let idea = response.data
 
+                console.log('idea', idea)
+
+                EventBus.$emit('ideaVoted', idea)
             })
             .catch(function (error) {
-                console.log(error.response.data.error);
+                console.log(error.response.data.error)
             });
         },
         downvote(id) {
-            let vm = this;
-
             axios.post('downvote/' + id)
             .then(response => {
+                let idea = response.data
 
+                EventBus.$emit('ideaVoted', idea)
             })
             .catch(function (error) {
-                console.log(error.response.data.error);
+                console.log(error.response.data.error)
             });
         }
     },

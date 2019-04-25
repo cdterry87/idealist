@@ -12,19 +12,23 @@ class VoteController extends Controller
     {
         $idea->increment('votes');
 
-        $idea = Vote::create([
+        $vote = Vote::create([
             'idea_id' => $idea->id,
             'user_id' => auth()->id(),
         ]);
+
+        return $idea;
     }
 
     public function downvote(Idea $idea)
     {
         $idea->decrement('votes');
 
-        $idea = Vote::create([
+        $vote = Vote::create([
             'idea_id' => $idea->id,
             'user_id' => auth()->id(),
         ]);
+
+        return $idea;
     }
 }

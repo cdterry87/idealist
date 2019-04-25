@@ -2,7 +2,7 @@
     <div class="box">
         <h2 class="title is-5 has-text-centered">Top ideas</h2>
         <hr>
-        <Idea :vote="false" v-for="idea in ideas" :key="idea.id" :idea="idea" />
+        <Idea :vote="false" v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" />
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
                 this.ideas = response.data
             })
             .catch(function (error) {
-                console.log(error.response.data.error);
+                console.log(error.response.data.error)
             });
         },
     },
@@ -36,6 +36,23 @@ export default {
         EventBus.$on('ideaSubmitted', idea => {
             this.ideas.push(idea)
         })
+        EventBus.$on('ideaVoted', idea => {
+            // Remove the previous idea from the array
+            let removeIdea = this.ideas.find(rmIdea => rmIdea.id === idea.id)
+            this.ideas = this.ideas.filter(function( obj ) {
+                return obj.id !== removeIdea.id;
+            });
+
+            // Add the new idea to the array
+            this.ideas.push(idea)
+        })
+    },
+    computed: {
+        sortedIdeas() {
+            return this.ideas.sort((a, b) => {
+                return b.votes - a.votes
+            });
+        }
     },
     mounted() {
         this.getTopIdeas()
