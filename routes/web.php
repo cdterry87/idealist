@@ -22,4 +22,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ideas/voteable', 'IdeaController@voteable');
     Route::post('/upvote/{idea}', 'VoteController@upvote');
     Route::post('/downvote/{idea}', 'VoteController@downvote');
+    Route::post('/favorite', 'FavoriteController@store');
 });

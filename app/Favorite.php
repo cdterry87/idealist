@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Idea extends Model
+class Favorite extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,11 +12,6 @@ class Idea extends Model
      * @var array
      */
     protected $fillable = [
-        'idea', 'user_id', 'votes'
+        'user_id', 'idea_id'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
