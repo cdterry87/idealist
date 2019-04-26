@@ -11,6 +11,9 @@ Vue.filter('truncate', function (string, length = 150) {
 
 import App from './components/App'
 
+import MyIdeas from './components/MyIdeas';
+Vue.component('myideas', MyIdeas);
+
 const app = new Vue({
     el: '#app',
     components: { App },

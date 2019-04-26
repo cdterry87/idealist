@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Idea;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IdeaController extends Controller
 {
@@ -14,7 +15,7 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        return Idea::where('user_id', auth()->id())->get();
+        //
     }
 
     /**
@@ -100,7 +101,7 @@ class IdeaController extends Controller
      */
     public function top()
     {
-        return response()->json(Idea::all()->toArray());
+        return Idea::orderBy('votes', 'desc')->get();
     }
 
     /**
@@ -111,6 +112,16 @@ class IdeaController extends Controller
      */
     public function voteable()
     {
-        return response()->json(Idea::all()->toArray());
+        return Idea::orderBy('created_at', 'desc')->get();
+    }
+
+    /**
+     * Returns the ideas for the authenticated user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function my()
+    {
+        return Auth::user()->ideas()->orderBy('updated_at', 'desc')->get();
     }
 }

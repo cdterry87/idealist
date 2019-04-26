@@ -100,7 +100,7 @@ class NewIdeaTest extends TestCase
         $this->post('/idea', $attributes);
         $this->post('/idea', $attributes);
 
-        $response = $this->get('/idea');
+        $response = $this->get('/ideas/my');
 
         $this->assertEquals(3, $response->getOriginalContent()->count());
     }

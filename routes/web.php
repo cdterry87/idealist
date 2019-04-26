@@ -16,11 +16,20 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
+    // Create an idea
     Route::post('/idea', 'IdeaController@store');
-    Route::get('/idea', 'IdeaController@index');
+
+    // Load the idea lists
     Route::get('/ideas/top', 'IdeaController@top');
     Route::get('/ideas/voteable', 'IdeaController@voteable');
+    Route::get('/ideas/my', 'IdeaController@my');
+
+    // Updvote / Downvote an idea
     Route::post('/upvote/{idea}', 'VoteController@upvote');
     Route::post('/downvote/{idea}', 'VoteController@downvote');
+
+    // Favorites
     Route::post('/favorite', 'FavoriteController@store');
+
+    Route::get('/myideas', 'UserController@myideas');
 });
