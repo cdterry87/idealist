@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/downvote/{idea}', 'VoteController@downvote');
 
     // Favorites
-    Route::post('/favorite', 'FavoriteController@store');
+    Route::post('/favorite/{idea}', 'FavoriteController@favorite');
 
     Route::get('/myideas', 'UserController@myideas');
 });

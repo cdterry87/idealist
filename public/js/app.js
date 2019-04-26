@@ -385,6 +385,11 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error.response.data.error);
       });
+    },
+    favorite: function favorite(id) {
+      axios.post('favorite/' + id).then(function (response) {})["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
     }
   }
 });
@@ -1954,7 +1959,18 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "span",
+        {
+          staticClass: "icon is-small",
+          on: {
+            click: function($event) {
+              return _vm.favorite(_vm.idea.id)
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-star" })]
+      ),
       _vm._v(" "),
       _vm.vote == false
         ? _c("span", { staticClass: "icon is-small" }, [
@@ -1968,16 +1984,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon is-small" }, [
-      _c("i", { staticClass: "fa fa-star" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -14881,8 +14888,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /shared/httpd/idealist/idealist/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /shared/httpd/idealist/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

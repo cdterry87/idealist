@@ -17,7 +17,7 @@
             <span class="icon is-small" v-if="vote == true" @click="downvote(idea.id)">
                 <i class="fa fa-arrow-circle-down"></i>
             </span>
-            <span class="icon is-small">
+            <span class="icon is-small" @click="favorite(idea.id)">
                 <i class="fa fa-star"></i>
             </span>
             <span class="icon is-small" v-if="vote == false">
@@ -55,6 +55,15 @@ export default {
                 let idea = response.data
 
                 EventBus.$emit('ideaVoted', idea)
+            })
+            .catch(function (error) {
+                console.log(error.response.data.error)
+            });
+        },
+        favorite(id) {
+            axios.post('favorite/' + id)
+            .then(response => {
+
             })
             .catch(function (error) {
                 console.log(error.response.data.error)
