@@ -2,7 +2,8 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="/"><span><i class="fas fa-lightbulb"></i></span> Idealist</a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTop">
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTop"
+                onClick="document.getElementById('navbarTop').classList.toggle('is-active')">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
