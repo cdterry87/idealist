@@ -86,4 +86,22 @@ class NewIdeaTest extends TestCase
             'user_id' => auth()->id(),
         ]);
     }
+
+    /** @test */
+    public function a_signed_in_user_can_view_their_own_ideas()
+    {
+        $this->signIn();
+
+        $attributes = [
+            'idea' => 'Something overthought and underdone'
+        ];
+
+        $this->post('/idea', $attributes);
+        $this->post('/idea', $attributes);
+        $this->post('/idea', $attributes);
+
+        $response = $this->get('/idea');
+
+        $this->assertEquals(3, $response->getOriginalContent()->count());
+    }
 }
