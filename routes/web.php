@@ -31,5 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Favorites
     Route::post('/favorite/{idea}', 'FavoriteController@favorite');
 
+    //User section
+    Route::get('/settings', 'UserController@settings');
     Route::get('/myideas', 'UserController@myideas');
+    Route::get('/favorites', 'UserController@favorites');
+    Route::get('/history', 'UserController@history');
 });

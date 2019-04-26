@@ -2,6 +2,6 @@
 
 @section('usersection')
 
-    <myideas></myideas>
+    <settings></settings>
 
 @endsection

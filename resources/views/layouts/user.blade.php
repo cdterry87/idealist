@@ -18,7 +18,7 @@
                         </ul>
                     </div>
 
-                    @yield('myideas')
+                    @yield('usersection')
 
                 </div>
             </div>

@@ -2,6 +2,6 @@
 
 @section('usersection')
 
-    <myideas></myideas>
+    <history></history>
 
 @endsection
