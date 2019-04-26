@@ -14,10 +14,7 @@
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a>
                     <div class="navbar-dropdown">
-                        <a href="/settings" class="navbar-item"><i class="fas fa-cogs"></i> Settings</a>
-                        <a href="/myideas" class="navbar-item"><i class="fas fa-lightbulb"></i> My Ideas</a>
-                        <a href="/favorites" class="navbar-item"><i class="fas fa-star"></i> Favorites</a>
-                        <a href="/history" class="navbar-item"><i class="fas fa-history"></i> History</a>
+                        <a href="/account" class="navbar-item"><i class="fas fa-cogs"></i> My Account</a>
                         <hr class="navbar-divider">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

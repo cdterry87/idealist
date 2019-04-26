@@ -11,17 +11,14 @@ Vue.filter('truncate', function (string, length = 150) {
 
 import App from './components/App'
 
-import Settings from './components/Settings';
-Vue.component('settings', Settings);
+import Tabs from './utilities/Tabs';
+Vue.component('tabs', Tabs);
 
-import MyIdeas from './components/MyIdeas';
-Vue.component('myideas', MyIdeas);
+import Tab from './utilities/Tab';
+Vue.component('tab', Tab);
 
-import Favorites from './components/Favorites';
-Vue.component('favorites', Favorites);
-
-import History from './components/History';
-Vue.component('history', History);
+import User from './components/User';
+Vue.component('user', User);
 
 const app = new Vue({
     el: '#app',

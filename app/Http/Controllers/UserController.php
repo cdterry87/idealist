@@ -6,23 +6,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function settings()
+    public function index()
     {
-        return view('settings');
+        return view('user');
     }
 
-    public function myideas()
-    {
-        return view('myideas');
-    }
-
-    public function favorites()
-    {
-        return view('favorites');
-    }
-
-    public function history()
-    {
-        return view('history');
-    }
 }
