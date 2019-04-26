@@ -15,7 +15,7 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        return Idea::where('user_id', auth()->id())->get();
+        //
     }
 
     /**
@@ -122,7 +122,6 @@ class IdeaController extends Controller
      */
     public function my()
     {
-        // return Idea::orderBy('created_at', 'desc')->get();
         return Auth::user()->ideas()->orderBy('updated_at', 'desc')->get();
     }
 }
