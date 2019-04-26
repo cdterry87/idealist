@@ -14,7 +14,7 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        //
+        return Idea::where('user_id', auth()->id())->get();
     }
 
     /**

@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/idea', 'IdeaController@store');
+    Route::get('/idea', 'IdeaController@index');
     Route::get('/ideas/top', 'IdeaController@top');
     Route::get('/ideas/voteable', 'IdeaController@voteable');
     Route::post('/upvote/{idea}', 'VoteController@upvote');

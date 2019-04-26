@@ -36884,7 +36884,7 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/hardenwallace/Sites/idealist/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /shared/httpd/idealist/idealist/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
 
 
 /***/ })
