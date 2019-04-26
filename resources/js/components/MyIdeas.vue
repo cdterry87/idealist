@@ -1,7 +1,5 @@
 <template>
-    <div class="box">
-        <h2 class="title is-5 has-text-centered">My ideas</h2>
-        <hr>
+    <div>
         <Idea :vote="false" v-for="idea in ideas" :key="idea.id" :idea="idea" />
     </div>
 </template>

@@ -413,8 +413,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1966,19 +1964,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "box" },
-    [
-      _c("h2", { staticClass: "title is-5 has-text-centered" }, [
-        _vm._v("My ideas")
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _vm._l(_vm.ideas, function(idea) {
-        return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
-      })
-    ],
-    2
+    _vm._l(_vm.ideas, function(idea) {
+      return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
+    }),
+    1
   )
 }
 var staticRenderFns = []
