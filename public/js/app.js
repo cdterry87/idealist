@@ -415,48 +415,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2006,121 +1964,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "columns" }, [
-      _vm._m(0),
+  return _c(
+    "div",
+    { staticClass: "box" },
+    [
+      _c("h2", { staticClass: "title is-5 has-text-centered" }, [
+        _vm._v("My ideas")
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "column is-9" }, [
-        _c(
-          "div",
-          { staticClass: "box" },
-          [
-            _c("h2", { staticClass: "title is-5 has-text-centered" }, [
-              _vm._v("My ideas")
-            ]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _vm._l(_vm.ideas, function(idea) {
-              return _c("Idea", {
-                key: idea.id,
-                attrs: { vote: false, idea: idea }
-              })
-            })
-          ],
-          2
-        )
-      ])
-    ])
-  ])
+      _c("hr"),
+      _vm._v(" "),
+      _vm._l(_vm.ideas, function(idea) {
+        return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-3" }, [
-      _c("div", { staticClass: "box" }, [
-        _c("div", { staticClass: "buttons" }, [
-          _c(
-            "a",
-            {
-              staticClass: "button is-fullwidth",
-              attrs: { href: "/settings" }
-            },
-            [
-              _c("span", { staticClass: "icon" }, [
-                _c("i", { staticClass: "fas fa-cogs" })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Settings")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "button is-fullwidth", attrs: { href: "/myideas" } },
-            [
-              _c("span", { staticClass: "icon" }, [
-                _c("i", { staticClass: "fas fa-lightbulb" })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("My Ideas")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "button is-fullwidth",
-              attrs: { href: "/favorites" }
-            },
-            [
-              _c("span", { staticClass: "icon" }, [
-                _c("i", { staticClass: "fas fa-star" })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Favorites")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "button is-fullwidth", attrs: { href: "/history" } },
-            [
-              _c("span", { staticClass: "icon" }, [
-                _c("i", { staticClass: "fas fa-history" })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("History")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "button is-fullwidth is-danger",
-              attrs: {
-                href: "/logout",
-                onclick:
-                  "event.preventDefault();\n                        document.getElementById('logout-form').submit();"
-              }
-            },
-            [
-              _c("i", { staticClass: "fas fa-sign-out-alt" }),
-              _vm._v(" Logout\n                    ")
-            ]
-          ),
-          _vm._v(" "),
-          _c("form", {
-            staticStyle: { display: "none" },
-            attrs: { id: "logout-form", action: "/logout", method: "POST" }
-          })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,11 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
-@section('content')
+@section('myideas')
 
-@include('layouts.nav')
-
-<div id="app">
     <myideas></myideas>
-</div>
 
 @endsection
