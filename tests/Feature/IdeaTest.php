@@ -20,7 +20,7 @@ class IdeaTest extends TestCase
             'idea' => 'Something overthought and underdone'
         ];
 
-        $response = $this->post('/idea', $attributes);
+        $this->post('/idea', $attributes);
 
         $this->assertDatabaseHas('ideas', $attributes);
     }
@@ -32,8 +32,7 @@ class IdeaTest extends TestCase
             'idea' => 'Something overthought and underdone'
         ];
 
-        $response = $this->post('/idea', $attributes);
-
+        $this->post('/idea', $attributes)->assertStatus(302);
         $this->assertDatabaseMissing('ideas', $attributes);
     }
 
@@ -42,22 +41,16 @@ class IdeaTest extends TestCase
     {
         $this->signIn();
 
-        $attributes = [
-            'idea' => 'Something overthought and underdone'
-        ];
+        $idea = factory('App\Idea')->create();
 
-        $ideaId = json_decode($this->post('/idea', $attributes)
-            ->getContent())
-            ->id;
+        $this->post('/upvote/' . $idea->id);
 
-        $this->post('/upvote/' . $ideaId);
+        $idea2 = Idea::where(['id' => $idea->id])->first();
 
-        $idea = Idea::where(['id' => $ideaId])->first();
-
-        $this->assertEquals(1, $idea->votes);
+        $this->assertEquals(1, $idea2->votes);
 
         $this->assertDatabaseHas('votes', [
-            'idea_id' => $ideaId,
+            'idea_id' => $idea->id,
             'user_id' => auth()->id(),
         ]);
     }
@@ -67,22 +60,16 @@ class IdeaTest extends TestCase
     {
         $this->signIn();
 
-        $attributes = [
-            'idea' => 'Something overthought and underdone'
-        ];
+        $idea = factory('App\Idea')->create();
 
-        $ideaId = json_decode($this->post('/idea', $attributes)
-            ->getContent())
-            ->id;
+        $this->post('/downvote/' . $idea->id);
 
-        $this->post('/downvote/' . $ideaId);
-
-        $idea = Idea::where(['id' => $ideaId])->first();
+        $idea = Idea::where(['id' => $idea->id])->first();
 
         $this->assertEquals(-1, $idea->votes);
 
         $this->assertDatabaseHas('votes', [
-            'idea_id' => $ideaId,
+            'idea_id' => $idea->id,
             'user_id' => auth()->id(),
         ]);
     }
@@ -91,14 +78,10 @@ class IdeaTest extends TestCase
     public function a_signed_in_user_can_view_their_own_ideas()
     {
         $this->signIn();
-
-        $attributes = [
-            'idea' => 'Something overthought and underdone'
-        ];
-
-        $this->post('/idea', $attributes);
-        $this->post('/idea', $attributes);
-        $this->post('/idea', $attributes);
+        
+        factory('App\Idea')->create(['user_id' => auth()->id()]);
+        factory('App\Idea')->create(['user_id' => auth()->id()]);
+        factory('App\Idea')->create(['user_id' => auth()->id()]);
 
         $response = $this->get('/ideas/my');
 

@@ -2,12 +2,12 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Idea;
+use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Idea::class, function (Faker $faker) {
+$factory->define(Model::class, function (Faker $faker) {
     return [
-        'idea' => $faker->sentence(rand(5, 10)),
         'user_id' => factory(App\User::class),
+        'idea_id' => factory(App\Idea::class),
     ];
 });

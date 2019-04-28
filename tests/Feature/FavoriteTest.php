@@ -15,11 +15,12 @@ class FavoriteTest extends TestCase
     /** @test */
     public function a_user_can_favorite_an_idea()
     {
-        $idea = factory('App\Idea')->create();
+        $this->signIn();
         
-        $user = User::find($idea->user_id);
-        Auth::login($user);
-
+        $idea = factory('App\Idea')->create([
+            'user_id' => auth()->id()
+        ]);
+        
         $this->post("/favorite/" . $idea->id);
 
         $this->assertDatabaseHas('favorites', [
@@ -31,29 +32,26 @@ class FavoriteTest extends TestCase
     /** @test */
     public function a_user_can_dislike_an_idea()
     {
-        $idea = factory('App\Idea')->create();
+        $this->signIn();
         
-        $user = User::find($idea->user_id);
-        Auth::login($user);
+        $favorite = factory('App\Favorite')->create([
+            'user_id' => auth()->id()
+        ]);
 
-        $response = $this->post("/favorite/" . $idea->id);
-        
-        $favorite = json_decode($response->content(), true);
+        $this->delete("/favorite/" . $favorite->id);
 
-        $this->delete("/favorite/" . $favorite['id']);
-
-        $this->assertDatabaseMissing('favorites', $favorite);
+        $this->assertDatabaseMissing('favorites', $favorite->toArray());
     }
 
     /** @test */
     public function a_user_can_see_a_list_of_their_favorites()
     {
+        $this->signIn();
+
         $idea = factory('App\Idea')->create();
         $idea2 = factory('App\Idea')->create();
         factory('App\Idea')->create();
-        
-        $user = User::find($idea->user_id);
-        Auth::login($user);
+
 
         $this->post("/favorite/" . $idea->id);
         $this->post("/favorite/" . $idea2->id);
