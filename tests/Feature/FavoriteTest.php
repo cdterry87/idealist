@@ -44,4 +44,22 @@ class FavoriteTest extends TestCase
 
         $this->assertDatabaseMissing('favorites', $favorite);
     }
+
+    /** @test */
+    public function a_user_can_see_a_list_of_their_favorites()
+    {
+        $idea = factory('App\Idea')->create();
+        $idea2 = factory('App\Idea')->create();
+        factory('App\Idea')->create();
+        
+        $user = User::find($idea->user_id);
+        Auth::login($user);
+
+        $this->post("/favorite/" . $idea->id);
+        $this->post("/favorite/" . $idea2->id);
+
+        $response = $this->get("/favorite");
+
+        dd($response->decodeResponseJson());
+    }
 }

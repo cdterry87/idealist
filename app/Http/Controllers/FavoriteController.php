@@ -4,14 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Idea;
 use App\Favorite;
-use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
     /**
-     * Mark an idea as favorite.
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function favorite(Idea $idea)
+    public function index()
+    {
+        return auth()->user()->favorites()->get();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Idea  $idea
+     * @return \App\Idea
+     */
+    public function store(Idea $idea)
     {
         $favorite = Favorite::create([
             'idea_id' => $idea->id,
@@ -22,10 +34,13 @@ class FavoriteController extends Controller
     }
 
     /**
-     * Dislike a previously favorited idea.
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Favorite  $favorite
+     * @return \App\Favorite
      */
-    public function dislike(Favorite $favorite)
+    public function destroy(Favorite $favorite)
     {
-        $favorite->delete();
+        return $favorite->delete();
     }
 }

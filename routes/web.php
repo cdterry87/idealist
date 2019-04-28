@@ -29,8 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/downvote/{idea}', 'VoteController@downvote');
 
     // Favorites
-    Route::post('/favorite/{idea}', 'FavoriteController@favorite');
-    Route::delete('/favorite/{favorite}', 'FavoriteController@dislike');
+    Route::get('/favorite', 'FavoriteController@index');
+    Route::post('/favorite/{idea}', 'FavoriteController@store');
+    Route::delete('/favorite/{favorite}', 'FavoriteController@destroy');
 
     //User section
     Route::get('/account', 'UserController@index');
