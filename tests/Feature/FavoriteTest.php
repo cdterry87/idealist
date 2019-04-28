@@ -50,7 +50,7 @@ class FavoriteTest extends TestCase
 
         $idea = factory('App\Idea')->create();
         $idea2 = factory('App\Idea')->create();
-        factory('App\Idea')->create();
+        factory('App\Idea', 5)->create();
 
 
         $this->post("/favorite/" . $idea->id);

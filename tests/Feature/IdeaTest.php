@@ -79,9 +79,7 @@ class IdeaTest extends TestCase
     {
         $this->signIn();
         
-        factory('App\Idea')->create(['user_id' => auth()->id()]);
-        factory('App\Idea')->create(['user_id' => auth()->id()]);
-        factory('App\Idea')->create(['user_id' => auth()->id()]);
+        factory('App\Idea', 3)->create(['user_id' => auth()->id()]);
 
         $response = $this->get('/ideas/my');
 
