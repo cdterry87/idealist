@@ -8,9 +8,10 @@ use App\Favorite;
 class FavoriteController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of all the ideas a user
+     * has favorited.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Favorite
      */
     public function index()
     {
@@ -18,23 +19,18 @@ class FavoriteController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created favorite.
      *
      * @param  \App\Idea  $idea
      * @return \App\Idea
      */
     public function store(Idea $idea)
     {
-        $favorite = Favorite::create([
-            'idea_id' => $idea->id,
-            'user_id' => auth()->id(),
-        ]);
-
-        return $favorite;
+        return $idea->addFavorite(auth()->id());
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a specified favorite
      *
      * @param  \App\Favorite  $favorite
      * @return \App\Favorite

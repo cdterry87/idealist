@@ -521,7 +521,7 @@ __webpack_require__.r(__webpack_exports__);
     getVoteableIdeas: function getVoteableIdeas() {
       var _this = this;
 
-      axios.get('ideas/top').then(function (response) {
+      axios.get('top').then(function (response) {
         _this.ideas = response.data;
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -652,7 +652,7 @@ __webpack_require__.r(__webpack_exports__);
     getTopIdeas: function getTopIdeas() {
       var _this = this;
 
-      axios.get('ideas/top').then(function (response) {
+      axios.get('top').then(function (response) {
         _this.ideas = response.data;
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -15611,8 +15611,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /shared/httpd/idealist/idealist/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /shared/httpd/idealist/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

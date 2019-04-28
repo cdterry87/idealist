@@ -29,4 +29,14 @@ class Idea extends Model
     {
         return $this->hasMany(Vote::class);
     }
+
+    public function addFavorite($userId)
+    {
+        return $this->favorites()->create(['user_id' => $userId]);
+    }
+
+    public function addVote($userId)
+    {
+        return $this->votes()->create(['user_id' => $userId]);
+    }
 }

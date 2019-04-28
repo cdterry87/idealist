@@ -20,11 +20,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/idea', 'IdeaController@store');
 
     // Load the idea lists
-    Route::get('/ideas/top', 'IdeaController@top');
-    Route::get('/ideas/voteable', 'IdeaController@voteable');
-    Route::get('/ideas/my', 'IdeaController@my');
+    Route::get('/ideas/my', 'IdeaController@index');
 
     // Updvote / Downvote an idea
+    Route::get('/voteable', 'VoteController@voteable');
+    Route::get('/top', 'VoteController@top');
     Route::post('/upvote/{idea}', 'VoteController@upvote');
     Route::post('/downvote/{idea}', 'VoteController@downvote');
 

@@ -2,33 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Idea;
-use App\Vote;
 
 class VoteController extends Controller
 {
+    /**
+     * Sets a user's upvote of an idea.
+     *
+     * @return \App\Vote
+     */
     public function upvote(Idea $idea)
     {
         $idea->increment('votes');
-
-        $vote = Vote::create([
-            'idea_id' => $idea->id,
-            'user_id' => auth()->id(),
-        ]);
-
-        return $idea;
+        return $idea->addVote(auth()->id());
     }
 
+    /**
+     * Sets a user's downvote of an idea.
+     *
+     * @return \App\Vote
+     */
     public function downvote(Idea $idea)
     {
         $idea->decrement('votes');
+        return $idea->addVote(auth()->id());
+    }
 
-        $vote = Vote::create([
-            'idea_id' => $idea->id,
-            'user_id' => auth()->id(),
-        ]);
+    /**
+     * Returns the top voted ideas.
+     *
+     * @return \App\Idea
+     */
+    public function top()
+    {
+        return Idea::orderBy('votes', 'desc')->get();
+    }
 
-        return $idea;
+    /**
+     * Returns the ideas a user has yet to
+     * vote on.
+     *
+     * @return \App\Idea
+     */
+    public function voteable()
+    {
+        return Idea::orderBy('created_at', 'desc')->get();
     }
 }

@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         getTopIdeas() {
-            axios.get('ideas/top')
+            axios.get('top')
             .then(response => {
                 this.ideas = response.data
             })

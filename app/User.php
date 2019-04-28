@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Vote::class);
     }
+
+    public function addIdea($idea)
+    {
+        return $this->ideas()->create(['idea' => $idea]);
+    }
 }
