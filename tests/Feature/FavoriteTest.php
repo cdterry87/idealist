@@ -60,6 +60,6 @@ class FavoriteTest extends TestCase
 
         $response = $this->get("/favorite");
 
-        dd($response->decodeResponseJson());
+        $this->assertEquals(2, count($response->decodeResponseJson()));
     }
 }

@@ -14,7 +14,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        return auth()->user()->favorites()->get();
+        return auth()->user()->favorites()->latest()->get();
     }
 
     /**
