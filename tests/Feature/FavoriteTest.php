@@ -20,11 +20,28 @@ class FavoriteTest extends TestCase
         $user = User::find($idea->user_id);
         Auth::login($user);
 
-        $response = json_decode($this->post('/favorite', ['idea_id' => $idea->id])->content());
+        $this->post("/favorite/" . $idea->id);
 
         $this->assertDatabaseHas('favorites', [
             'user_id' => $idea->user_id,
             'idea_id' => $idea->id
         ]);
+    }
+
+    /** @test */
+    public function a_user_can_dislike_an_idea()
+    {
+        $idea = factory('App\Idea')->create();
+        
+        $user = User::find($idea->user_id);
+        Auth::login($user);
+
+        $response = $this->post("/favorite/" . $idea->id);
+        
+        $favorite = json_decode($response->content(), true);
+
+        $this->delete("/favorite/" . $favorite['id']);
+
+        $this->assertDatabaseMissing('favorites', $favorite);
     }
 }

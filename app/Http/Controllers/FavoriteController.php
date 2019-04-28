@@ -18,6 +18,14 @@ class FavoriteController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return $idea;
+        return $favorite;
+    }
+
+    /**
+     * Dislike a previously favorited idea.
+     */
+    public function dislike(Favorite $favorite)
+    {
+        $favorite->delete();
     }
 }
