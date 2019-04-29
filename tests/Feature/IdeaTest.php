@@ -42,6 +42,7 @@ class IdeaTest extends TestCase
         $this->signIn();
 
         $idea = factory('App\Idea')->create();
+        factory('App\Idea', 20)->create();
 
         $this->post('/upvote/' . $idea->id);
 
