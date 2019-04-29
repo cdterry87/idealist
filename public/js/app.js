@@ -332,14 +332,40 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
+/* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
 //
 //
 //
 //
 //
 //
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Favorites'
+  name: 'Favorites',
+  data: function data() {
+    return {
+      ideas: []
+    };
+  },
+  components: {
+    Idea: _Idea__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  methods: {
+    getFavorites: function getFavorites() {
+      var _this = this;
+
+      axios.get('favorite').then(function (response) {
+        _this.ideas = response.data;
+      })["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getFavorites();
+  }
 });
 
 /***/ }),
@@ -2066,16 +2092,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(_vm.ideas, function(idea) {
+      return _c("Idea", { key: idea.id, attrs: { idea: idea, vote: false } })
+    }),
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h2", [_vm._v("Favorites")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -2227,7 +2252,7 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.ideas, function(idea) {
-      return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
+      return _c("Idea", { key: idea.id, attrs: { idea: idea, vote: false } })
     }),
     1
   )
@@ -15611,8 +15636,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /shared/httpd/idealist/idealist/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /shared/httpd/idealist/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
