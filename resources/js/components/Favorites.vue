@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Idea v-for="idea in ideas" :key="idea.id" :idea="idea" :vote="false" />
+        <Idea v-for="idea in ideas" :key="idea.id" :idea="idea.idea" :vote="false" :favoriteId="idea.id" />
     </div>
 </template>
 

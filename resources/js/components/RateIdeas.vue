@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         getVoteableIdeas() {
-            axios.get('top')
+            axios.get('voteable')
             .then(response => {
                 this.ideas = response.data
             })

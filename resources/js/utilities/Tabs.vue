@@ -26,7 +26,6 @@ export default {
     },
     created() {
         this.tabs = this.$children
-        console.log('tabs', this.tabs)
     },
     methods: {
         selectTab(selectedTab) {

@@ -17,11 +17,11 @@
             <span class="icon is-small" v-if="vote == true" @click="downvote(idea.id)">
                 <i class="fa fa-arrow-circle-down"></i>
             </span>
-            <span class="icon is-small" @click="favorite(idea.id)" v-if="!idea.favorites[0]">
-                <i class="fa fa-star"></i>
-            </span>
-            <span class="icon is-small" @click="unfavorite(idea.favorites[0].id)" v-else>
+            <span class="icon is-small" @click="unFavorite(favoriteId)" v-if="favoriteId">
                 <i class="fa fa-star" :class="'has-text-info'"></i>
+            </span>
+            <span class="icon is-small" @click="favorite(idea.id)" v-else>
+                <i class="fa fa-star"></i>
             </span>
             <span class="icon is-small" v-if="vote == false">
                 <div class="tag">
@@ -37,14 +37,12 @@ import EventBus from './../eventbus'
 
 export default {
     name: 'Idea',
-    props: ['vote', 'idea'],
+    props: ['vote', 'idea', 'favoriteId'],
     methods: {
         upvote(id) {
             axios.post('upvote/' + id)
             .then(response => {
                 let idea = response.data
-
-                console.log('idea', idea)
 
                 EventBus.$emit('ideaVoted', idea)
             })
@@ -72,7 +70,7 @@ export default {
                 console.log(error.response.data.error)
             });
         },
-        unfavorite(id) {
+        unFavorite(id) {
             axios.delete('favorite/' + id)
             .then(response => {
 
@@ -80,7 +78,10 @@ export default {
             .catch(function (error) {
                 console.log(error.response.data.error)
             });
-        }
+        },
     },
+    created() {
+        console.log('favoriteId', this.favoriteId)
+    }
 }
 </script>

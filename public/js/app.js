@@ -357,7 +357,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('favorite').then(function (response) {
-        console.log(response);
         _this.ideas = response.data;
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -439,12 +438,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Idea',
-  props: ['vote', 'idea'],
+  props: ['vote', 'idea', 'favoriteId'],
   methods: {
     upvote: function upvote(id) {
       axios.post('upvote/' + id).then(function (response) {
         var idea = response.data;
-        console.log('idea', idea);
         _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('ideaVoted', idea);
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -463,11 +461,14 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error.response.data.error);
       });
     },
-    unfavorite: function unfavorite(id) {
+    unFavorite: function unFavorite(id) {
       axios["delete"]('favorite/' + id).then(function (response) {})["catch"](function (error) {
         console.log(error.response.data.error);
       });
     }
+  },
+  created: function created() {
+    console.log('favoriteId', this.favoriteId);
   }
 });
 
@@ -556,7 +557,7 @@ __webpack_require__.r(__webpack_exports__);
     getVoteableIdeas: function getVoteableIdeas() {
       var _this = this;
 
-      axios.get('top').then(function (response) {
+      axios.get('voteable').then(function (response) {
         _this.ideas = response.data;
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -851,7 +852,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.tabs = this.$children;
-    console.log('tabs', this.tabs);
   },
   methods: {
     selectTab: function selectTab(selectedTab) {
@@ -2104,7 +2104,10 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.ideas, function(idea) {
-      return _c("Idea", { key: idea.id, attrs: { idea: idea, vote: false } })
+      return _c("Idea", {
+        key: idea.id,
+        attrs: { idea: idea.idea, vote: false, favoriteId: idea.id }
+      })
     }),
     1
   )
@@ -2211,8 +2214,20 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      !_vm.idea.favorites[0]
+      _vm.favoriteId
         ? _c(
+            "span",
+            {
+              staticClass: "icon is-small",
+              on: {
+                click: function($event) {
+                  return _vm.unFavorite(_vm.favoriteId)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-star", class: "has-text-info" })]
+          )
+        : _c(
             "span",
             {
               staticClass: "icon is-small",
@@ -2223,18 +2238,6 @@ var render = function() {
               }
             },
             [_c("i", { staticClass: "fa fa-star" })]
-          )
-        : _c(
-            "span",
-            {
-              staticClass: "icon is-small",
-              on: {
-                click: function($event) {
-                  return _vm.unfavorite(_vm.idea.favorites[0].id)
-                }
-              }
-            },
-            [_c("i", { staticClass: "fa fa-star", class: "has-text-info" })]
           ),
       _vm._v(" "),
       _vm.vote == false
@@ -2473,7 +2476,14 @@ var render = function() {
       _c("hr"),
       _vm._v(" "),
       _vm._l(_vm.sortedIdeas, function(idea) {
-        return _c("Idea", { key: idea.id, attrs: { vote: false, idea: idea } })
+        return _c("Idea", {
+          key: idea.id,
+          attrs: {
+            vote: false,
+            idea: idea,
+            favoriteId: idea.favorite ? idea.favorite.id : false
+          }
+        })
       })
     ],
     2
@@ -15658,8 +15668,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /shared/httpd/idealist/idealist/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /shared/httpd/idealist/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
