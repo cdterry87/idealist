@@ -17,7 +17,7 @@ class Favorite extends Model
 
     public function idea()
     {
-        return $this->belongsToMany(Idea::class);
+        return $this->belongsTo(Idea::class);
     }
 
     public function user()

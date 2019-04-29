@@ -17,7 +17,7 @@ class VoteController extends Controller
         $idea->increment('votes');
         $idea->addVote(auth()->id());
 
-        return $idea->with('favorites')->get();
+        return $idea;
     }
 
     /**
@@ -30,7 +30,7 @@ class VoteController extends Controller
         $idea->decrement('votes');
         $idea->addVote(auth()->id());
 
-        return $idea->with('favorites')->get();
+        return $idea;
     }
 
     /**
