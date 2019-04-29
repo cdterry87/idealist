@@ -51,7 +51,7 @@ class VoteController extends Controller
      */
     public function voteable()
     {
-        return Idea::with('favorites')->whereDoesntHave('votes', function (Builder $query) {
+        return Idea::with('userFavorite')->whereDoesntHave('votes', function (Builder $query) {
             $query->where('user_id', '=', auth()->id());
         })->orderBy('created_at', 'desc')->get();
     }

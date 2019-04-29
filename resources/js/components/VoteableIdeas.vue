@@ -5,7 +5,7 @@
         <div v-if="ideas.length == 0" class="has-text-centered">
             There are no new ideas at this time.  Try again later.
         </div>
-        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorites[0] ? idea.favorites[0].id : false)" :vote="true" />
+        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.user_favorite ? idea.user_favorite.id : false)" :vote="true" />
     </div>
 </template>
 
