@@ -40,7 +40,7 @@ class VoteController extends Controller
      */
     public function top()
     {
-        return Idea::with('favorites')->whereHas('votes')->orderBy('votes', 'desc')->get();
+        return Idea::with('userFavorite')->get();
     }
 
     /**

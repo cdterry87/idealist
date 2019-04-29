@@ -16,11 +16,11 @@ class FavoriteTest extends TestCase
     public function a_user_can_favorite_an_idea()
     {
         $this->signIn();
-        
+
         $idea = factory('App\Idea')->create([
             'user_id' => auth()->id()
         ]);
-        
+
         $this->post("/favorite/" . $idea->id);
 
         $this->assertDatabaseHas('favorites', [
@@ -33,7 +33,7 @@ class FavoriteTest extends TestCase
     public function a_user_can_dislike_an_idea()
     {
         $this->signIn();
-        
+
         $favorite = factory('App\Favorite')->create([
             'user_id' => auth()->id()
         ]);

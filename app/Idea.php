@@ -25,6 +25,11 @@ class Idea extends Model
         return $this->hasMany(Favorite::class);
     }
 
+    public function userFavorite()
+    {
+        return $this->hasOne(Favorite::class)->where(['user_id' => auth()->id()]);
+    }
+
     public function votes()
     {
         return $this->hasMany(Vote::class);
