@@ -14,7 +14,9 @@ class VoteController extends Controller
     public function upvote(Idea $idea)
     {
         $idea->increment('votes');
-        return $idea->addVote(auth()->id());
+        $idea->addVote(auth()->id());
+
+        return $idea;
     }
 
     /**
@@ -25,7 +27,9 @@ class VoteController extends Controller
     public function downvote(Idea $idea)
     {
         $idea->decrement('votes');
-        return $idea->addVote(auth()->id());
+        $idea->addVote(auth()->id());
+
+        return $idea;
     }
 
     /**
