@@ -620,6 +620,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
 /* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 //
 //
 //
@@ -662,14 +664,17 @@ __webpack_require__.r(__webpack_exports__);
       _this2.ideas.push(idea);
     });
     _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaVoted', function (idea) {
-      // Remove the previous idea from the array
+      // Remove the previous idea from the array if it exists
       var removeIdea = _this2.ideas.find(function (rmIdea) {
         return rmIdea.id === idea.id;
       });
 
-      _this2.ideas = _this2.ideas.filter(function (obj) {
-        return obj.id !== removeIdea.id;
-      }); // Add the new idea to the array
+      if (!_typeof(removeIdea) == 'undefined') {
+        _this2.ideas = _this2.ideas.filter(function (obj) {
+          return obj.id !== removeIdea.id;
+        });
+      } // Add the new idea to the array
+
 
       _this2.ideas.push(idea);
     });

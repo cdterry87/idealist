@@ -40,11 +40,13 @@ export default {
             this.ideas.push(idea)
         })
         EventBus.$on('ideaVoted', idea => {
-            // Remove the previous idea from the array
+            // Remove the previous idea from the array if it exists
             let removeIdea = this.ideas.find(rmIdea => rmIdea.id === idea.id)
-            this.ideas = this.ideas.filter(function( obj ) {
-                return obj.id !== removeIdea.id;
-            });
+            if (!typeof(removeIdea) == 'undefined') {
+                this.ideas = this.ideas.filter(function( obj ) {
+                    return obj.id !== removeIdea.id;
+                });
+            }
 
             // Add the new idea to the array
             this.ideas.push(idea)
