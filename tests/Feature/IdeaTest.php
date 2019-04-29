@@ -78,7 +78,7 @@ class IdeaTest extends TestCase
     public function a_signed_in_user_can_view_their_own_ideas()
     {
         $this->signIn();
-        
+
         factory('App\Idea', 3)->create(['user_id' => auth()->id()]);
 
         $response = $this->get('/ideas/my');
