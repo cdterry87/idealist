@@ -2,7 +2,10 @@
     <div class="box">
         <h2 class="title is-5 has-text-centered">Top ideas</h2>
         <hr>
-        <Idea v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="false" />
+        <div v-if="ideas.length == 0" class="has-text-centered">
+            There are no top ideas at this time.  Try again later.
+        </div>
+        <Idea v-else v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="false" />
     </div>
 </template>
 

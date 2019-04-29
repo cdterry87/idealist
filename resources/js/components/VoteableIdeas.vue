@@ -2,7 +2,10 @@
     <div class="box">
         <h2 class="title is-5 has-text-centered">Cast your votes!</h2>
         <hr>
-        <Idea v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="true" />
+        <div v-if="ideas.length == 0" class="has-text-centered">
+            There are no new ideas at this time.  Try again later.
+        </div>
+        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="true" />
     </div>
 </template>
 
@@ -35,6 +38,13 @@ export default {
     created() {
         EventBus.$on('ideaSubmitted', idea => {
             this.ideas.push(idea)
+        }),
+        EventBus.$on('ideaVoted', idea => {
+            // Remove the previous idea from the array
+            let removeIdea = this.ideas.find(rmIdea => rmIdea.id === idea.id)
+            this.ideas = this.ideas.filter(function( obj ) {
+                return obj.id !== removeIdea.id;
+            });
         })
     },
     mounted() {

@@ -611,6 +611,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -735,6 +738,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -764,6 +770,15 @@ __webpack_require__.r(__webpack_exports__);
 
     _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaSubmitted', function (idea) {
       _this2.ideas.push(idea);
+    }), _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('ideaVoted', function (idea) {
+      // Remove the previous idea from the array
+      var removeIdea = _this2.ideas.find(function (rmIdea) {
+        return rmIdea.id === idea.id;
+      });
+
+      _this2.ideas = _this2.ideas.filter(function (obj) {
+        return obj.id !== removeIdea.id;
+      });
     });
   },
   mounted: function mounted() {
@@ -2433,16 +2448,22 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm._l(_vm.sortedIdeas, function(idea) {
-        return _c("Idea", {
-          key: idea.id,
-          attrs: {
-            idea: idea,
-            favoriteId: idea.favorite ? idea.favorite.id : false,
-            vote: false
-          }
-        })
-      })
+      _vm.ideas.length == 0
+        ? _c("div", { staticClass: "has-text-centered" }, [
+            _vm._v(
+              "\n        There are no top ideas at this time.  Try again later.\n    "
+            )
+          ])
+        : _vm._l(_vm.sortedIdeas, function(idea) {
+            return _c("Idea", {
+              key: idea.id,
+              attrs: {
+                idea: idea,
+                favoriteId: idea.favorite ? idea.favorite.id : false,
+                vote: false
+              }
+            })
+          })
     ],
     2
   )
@@ -2543,16 +2564,22 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm._l(_vm.ideas, function(idea) {
-        return _c("Idea", {
-          key: idea.id,
-          attrs: {
-            idea: idea,
-            favoriteId: idea.favorite ? idea.favorite.id : false,
-            vote: true
-          }
-        })
-      })
+      _vm.ideas.length == 0
+        ? _c("div", { staticClass: "has-text-centered" }, [
+            _vm._v(
+              "\n        There are no new ideas at this time.  Try again later.\n    "
+            )
+          ])
+        : _vm._l(_vm.ideas, function(idea) {
+            return _c("Idea", {
+              key: idea.id,
+              attrs: {
+                idea: idea,
+                favoriteId: idea.favorite ? idea.favorite.id : false,
+                vote: true
+              }
+            })
+          })
     ],
     2
   )
