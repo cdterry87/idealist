@@ -2,7 +2,7 @@
     <div class="box">
         <h2 class="title is-5 has-text-centered">Cast your votes!</h2>
         <hr>
-        <Idea :vote="true" v-for="idea in ideas" :key="idea.id" :idea="idea" />
+        <Idea v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="true" />
     </div>
 </template>
 
@@ -11,7 +11,7 @@ import EventBus from './../eventbus'
 import Idea from './Idea'
 
 export default {
-    name: 'RateIdeas',
+    name: 'VoteableIdeas',
     components: {
         Idea
     },

@@ -2,7 +2,7 @@
     <div class="box">
         <h2 class="title is-5 has-text-centered">Top ideas</h2>
         <hr>
-        <Idea :vote="false" v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false) "/>
+        <Idea v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="false" />
     </div>
 </template>
 

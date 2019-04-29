@@ -4,7 +4,7 @@
             <div class="columns">
                 <div class="column is-half">
                     <SubmitIdeas />
-                    <RateIdeas />
+                    <VoteableIdeas />
                 </div>
                 <div class="column is-half">
                     <TopIdeas />
@@ -16,14 +16,14 @@
 
 <script>
 import SubmitIdeas from './SubmitIdeas';
-import RateIdeas from './RateIdeas';
+import VoteableIdeas from './VoteableIdeas';
 import TopIdeas from './TopIdeas';
 
 export default {
     name: 'App',
     components: {
         SubmitIdeas,
-        RateIdeas,
+        VoteableIdeas,
         TopIdeas
     }
 }

@@ -50,6 +50,6 @@ class VoteController extends Controller
      */
     public function voteable()
     {
-        return Idea::orderBy('created_at', 'desc')->get();
+        return Idea::with('favorite')->orderBy('created_at', 'desc')->get();
     }
 }

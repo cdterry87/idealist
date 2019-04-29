@@ -79,9 +79,6 @@ export default {
                 console.log(error.response.data.error)
             });
         },
-    },
-    created() {
-        console.log('favoriteId', this.favoriteId)
     }
 }
 </script>
