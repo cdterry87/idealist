@@ -5,7 +5,7 @@
         <div v-if="ideas.length == 0" class="has-text-centered">
             There are no new ideas at this time.  Try again later.
         </div>
-        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="true" />
+        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorites[0] ? idea.favorites[0].id : false)" :vote="true" />
     </div>
 </template>
 
@@ -42,12 +42,13 @@ export default {
         EventBus.$on('ideaVoted', idea => {
             // Remove the previous idea from the array
             let removeIdea = this.ideas.find(rmIdea => rmIdea.id === idea.id)
-            this.ideas = this.ideas.filter(function( obj ) {
-                return obj.id !== removeIdea.id;
-            });
+            if (typeof(removeIdea) != 'undefined') {
+                this.ideas = this.ideas.filter(function( obj ) {
+                    return obj.id !== removeIdea.id;
+                });
+            }
         })
         EventBus.$on('getIdeas', () => {
-            console.log('voteable getIdeas')
             this.getVoteableIdeas()
         })
     },

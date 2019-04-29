@@ -5,7 +5,7 @@
         <div v-if="ideas.length == 0" class="has-text-centered">
             There are no top ideas at this time.  Try again later.
         </div>
-        <Idea v-else v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorite ? idea.favorite.id : false)" :vote="false" />
+        <Idea v-else v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.favorites[0] ? idea.favorites[0].id : false)" :vote="false" />
     </div>
 </template>
 
@@ -52,7 +52,6 @@ export default {
             this.ideas.push(idea)
         })
         EventBus.$on('getIdeas', () => {
-            console.log('top getIdeas')
             this.getTopIdeas()
         })
     },

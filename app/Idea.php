@@ -20,9 +20,9 @@ class Idea extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function favorite()
+    public function favorites()
     {
-        return $this->hasOne(Favorite::class);
+        return $this->hasMany(Favorite::class);
     }
 
     public function votes()
@@ -30,9 +30,14 @@ class Idea extends Model
         return $this->hasMany(Vote::class);
     }
 
+    public function userVotes()
+    {
+        return $this->hasManyThrough(User::class, Vote::class, 'user_id', 'id');
+    }
+
     public function addFavorite($userId)
     {
-        return $this->favorite()->create(['user_id' => $userId]);
+        return $this->favorites()->create(['user_id' => $userId]);
     }
 
     public function addVote($userId)

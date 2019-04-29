@@ -679,8 +679,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       _this2.ideas.push(idea);
     });
     _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('getIdeas', function () {
-      console.log('top getIdeas');
-
       _this2.getTopIdeas();
     });
   },
@@ -803,13 +801,13 @@ __webpack_require__.r(__webpack_exports__);
         return rmIdea.id === idea.id;
       });
 
-      _this2.ideas = _this2.ideas.filter(function (obj) {
-        return obj.id !== removeIdea.id;
-      });
+      if (typeof removeIdea != 'undefined') {
+        _this2.ideas = _this2.ideas.filter(function (obj) {
+          return obj.id !== removeIdea.id;
+        });
+      }
     });
     _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('getIdeas', function () {
-      console.log('voteable getIdeas');
-
       _this2.getVoteableIdeas();
     });
   },
@@ -2506,7 +2504,7 @@ var render = function() {
               key: idea.id,
               attrs: {
                 idea: idea,
-                favoriteId: idea.favorite ? idea.favorite.id : false,
+                favoriteId: idea.favorites[0] ? idea.favorites[0].id : false,
                 vote: false
               }
             })
@@ -2622,7 +2620,7 @@ var render = function() {
               key: idea.id,
               attrs: {
                 idea: idea,
-                favoriteId: idea.favorite ? idea.favorite.id : false,
+                favoriteId: idea.favorites[0] ? idea.favorites[0].id : false,
                 vote: true
               }
             })

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Idea;
+use Illuminate\Database\Eloquent\Builder;
 
 class VoteController extends Controller
 {
@@ -16,7 +17,7 @@ class VoteController extends Controller
         $idea->increment('votes');
         $idea->addVote(auth()->id());
 
-        return $idea;
+        return $idea->with('favorites')->get();
     }
 
     /**
@@ -29,7 +30,7 @@ class VoteController extends Controller
         $idea->decrement('votes');
         $idea->addVote(auth()->id());
 
-        return $idea;
+        return $idea->with('favorites')->get();
     }
 
     /**
@@ -39,7 +40,7 @@ class VoteController extends Controller
      */
     public function top()
     {
-        return Idea::with('favorite')->whereHas('votes')->orderBy('votes', 'desc')->get();
+        return Idea::with('favorites')->whereHas('votes')->orderBy('votes', 'desc')->get();
     }
 
     /**
@@ -50,6 +51,8 @@ class VoteController extends Controller
      */
     public function voteable()
     {
-        return Idea::with('favorite')->orderBy('created_at', 'desc')->get();
+        return Idea::with('favorites')->whereDoesntHave('votes', function (Builder $query) {
+            $query->where('user_id', '=', auth()->id());
+        })->orderBy('created_at', 'desc')->get();
     }
 }
