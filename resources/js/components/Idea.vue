@@ -17,8 +17,11 @@
             <span class="icon is-small" v-if="vote == true" @click="downvote(idea.id)">
                 <i class="fa fa-arrow-circle-down"></i>
             </span>
-            <span class="icon is-small" @click="favorite(idea.id)">
+            <span class="icon is-small" @click="favorite(idea.id)" v-if="!idea.favorites[0]">
                 <i class="fa fa-star"></i>
+            </span>
+            <span class="icon is-small" @click="unfavorite(idea.favorites[0].id)" v-else>
+                <i class="fa fa-star" :class="'has-text-info'"></i>
             </span>
             <span class="icon is-small" v-if="vote == false">
                 <div class="tag">
@@ -62,6 +65,15 @@ export default {
         },
         favorite(id) {
             axios.post('favorite/' + id)
+            .then(response => {
+
+            })
+            .catch(function (error) {
+                console.log(error.response.data.error)
+            });
+        },
+        unfavorite(id) {
+            axios.delete('favorite/' + id)
             .then(response => {
 
             })

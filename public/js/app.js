@@ -432,6 +432,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Idea',
@@ -456,6 +459,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     favorite: function favorite(id) {
       axios.post('favorite/' + id).then(function (response) {})["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    },
+    unfavorite: function unfavorite(id) {
+      axios["delete"]('favorite/' + id).then(function (response) {})["catch"](function (error) {
         console.log(error.response.data.error);
       });
     }
@@ -2202,18 +2210,31 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass: "icon is-small",
-          on: {
-            click: function($event) {
-              return _vm.favorite(_vm.idea.id)
-            }
-          }
-        },
-        [_c("i", { staticClass: "fa fa-star" })]
-      ),
+      !_vm.idea.favorites[0]
+        ? _c(
+            "span",
+            {
+              staticClass: "icon is-small",
+              on: {
+                click: function($event) {
+                  return _vm.favorite(_vm.idea.id)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-star" })]
+          )
+        : _c(
+            "span",
+            {
+              staticClass: "icon is-small",
+              on: {
+                click: function($event) {
+                  return _vm.unfavorite(_vm.idea.favorites[0].id)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-star", class: "has-text-info" })]
+          ),
       _vm._v(" "),
       _vm.vote == false
         ? _c("span", { staticClass: "icon is-small" }, [
