@@ -46,6 +46,10 @@ export default {
                 return obj.id !== removeIdea.id;
             });
         })
+        EventBus.$on('getIdeas', () => {
+            console.log('voteable getIdeas')
+            this.getVoteableIdeas()
+        })
     },
     mounted() {
         this.getVoteableIdeas()

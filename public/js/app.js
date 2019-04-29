@@ -340,6 +340,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -362,6 +365,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error.response.data.error);
       });
     }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('getIdeas', function () {
+      _this2.getFavorites();
+    });
   },
   mounted: function mounted() {
     this.getFavorites();
@@ -457,12 +467,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     favorite: function favorite(id) {
-      axios.post('favorite/' + id).then(function (response) {})["catch"](function (error) {
+      axios.post('favorite/' + id).then(function (response) {
+        _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('getIdeas');
+      })["catch"](function (error) {
         console.log(error.response.data.error);
       });
     },
     unFavorite: function unFavorite(id) {
-      axios["delete"]('favorite/' + id).then(function (response) {})["catch"](function (error) {
+      axios["delete"]('favorite/' + id).then(function (response) {
+        _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('getIdeas');
+      })["catch"](function (error) {
         console.log(error.response.data.error);
       });
     }
@@ -482,6 +496,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../eventbus */ "./resources/js/eventbus.js");
 /* harmony import */ var _Idea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Idea */ "./resources/js/components/Idea.vue");
+//
+//
+//
 //
 //
 //
@@ -656,6 +673,11 @@ __webpack_require__.r(__webpack_exports__);
 
       _this2.ideas.push(idea);
     });
+    _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('getIdeas', function () {
+      console.log('top getIdeas');
+
+      _this2.getTopIdeas();
+    });
   },
   computed: {
     sortedIdeas: function sortedIdeas() {
@@ -779,6 +801,11 @@ __webpack_require__.r(__webpack_exports__);
       _this2.ideas = _this2.ideas.filter(function (obj) {
         return obj.id !== removeIdea.id;
       });
+    });
+    _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('getIdeas', function () {
+      console.log('voteable getIdeas');
+
+      _this2.getVoteableIdeas();
     });
   },
   mounted: function mounted() {
@@ -2115,13 +2142,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.ideas, function(idea) {
-      return _c("Idea", {
-        key: idea.id,
-        attrs: { idea: idea.idea, vote: false, favoriteId: idea.id }
-      })
-    }),
-    1
+    [
+      _vm.ideas.length == 0
+        ? _c("div", { staticClass: "has-text-centered" }, [
+            _vm._v("\n        You have not added any favorites.\n    ")
+          ])
+        : _vm._l(_vm.ideas, function(idea) {
+            return _c("Idea", {
+              key: idea.id,
+              attrs: { idea: idea.idea, vote: false, favoriteId: idea.id }
+            })
+          })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -2288,10 +2321,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.ideas, function(idea) {
-      return _c("Idea", { key: idea.id, attrs: { idea: idea, vote: false } })
-    }),
-    1
+    [
+      _vm.ideas.length == 0
+        ? _c("div", { staticClass: "has-text-centered" }, [
+            _vm._v("\n        You have not submitted any ideas.\n    ")
+          ])
+        : _vm._l(_vm.ideas, function(idea) {
+            return _c("Idea", {
+              key: idea.id,
+              attrs: { idea: idea, vote: false }
+            })
+          })
+    ],
+    2
   )
 }
 var staticRenderFns = []

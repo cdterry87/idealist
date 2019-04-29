@@ -64,7 +64,7 @@ export default {
         favorite(id) {
             axios.post('favorite/' + id)
             .then(response => {
-
+                EventBus.$emit('getIdeas')
             })
             .catch(function (error) {
                 console.log(error.response.data.error)
@@ -73,7 +73,7 @@ export default {
         unFavorite(id) {
             axios.delete('favorite/' + id)
             .then(response => {
-
+                EventBus.$emit('getIdeas')
             })
             .catch(function (error) {
                 console.log(error.response.data.error)

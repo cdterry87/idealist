@@ -49,6 +49,10 @@ export default {
             // Add the new idea to the array
             this.ideas.push(idea)
         })
+        EventBus.$on('getIdeas', () => {
+            console.log('top getIdeas')
+            this.getTopIdeas()
+        })
     },
     computed: {
         sortedIdeas() {

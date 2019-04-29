@@ -1,6 +1,9 @@
 <template>
     <div>
-        <Idea v-for="idea in ideas" :key="idea.id" :idea="idea" :vote="false" />
+        <div v-if="ideas.length == 0" class="has-text-centered">
+            You have not submitted any ideas.
+        </div>
+        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea" :vote="false" />
     </div>
 </template>
 

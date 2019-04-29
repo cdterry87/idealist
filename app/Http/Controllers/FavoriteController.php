@@ -37,6 +37,6 @@ class FavoriteController extends Controller
      */
     public function destroy(Favorite $favorite)
     {
-        return $favorite->delete();
+        $favorite->delete();
     }
 }
