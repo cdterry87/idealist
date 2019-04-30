@@ -27,6 +27,9 @@ class FavoriteController extends Controller
      */
     public function store(Idea $idea)
     {
+        $history = new History;
+        $history->addHistory($idea->id, 'favorited');
+
         return $idea->addFavorite(auth()->id());
     }
 

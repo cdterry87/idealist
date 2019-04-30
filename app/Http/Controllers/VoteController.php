@@ -18,6 +18,9 @@ class VoteController extends Controller
         $idea->increment('votes');
         $idea->addVote(auth()->id());
 
+        $history = new History;
+        $history->addHistory($idea->id, 'upvoted');
+
         return $idea->where(['id' => $idea->id])->with(['userFavorite', 'user'])->first();
     }
 
@@ -30,6 +33,9 @@ class VoteController extends Controller
     {
         $idea->decrement('votes');
         $idea->addVote(auth()->id());
+
+        $history = new History;
+        $history->addHistory($idea->id, 'downvoted');
 
         return $idea->where(['id' => $idea->id])->with(['userFavorite', 'user'])->first();
     }

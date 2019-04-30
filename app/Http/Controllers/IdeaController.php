@@ -27,6 +27,12 @@ class IdeaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, ['idea' => 'required']);
-        return auth()->user()->addIdea(request('idea'));
+
+        $idea = auth()->user()->addIdea(request('idea'));
+
+        $history = new History;
+        $history->addHistory($idea->id, 'created');
+
+        return $idea;
     }
 }
