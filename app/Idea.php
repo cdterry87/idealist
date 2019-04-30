@@ -15,6 +15,13 @@ class Idea extends Model
         'idea', 'user_id', 'votes'
     ];
 
+    protected $appends = ['elapsed_time'];
+
+    public function getElapsedTimeAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

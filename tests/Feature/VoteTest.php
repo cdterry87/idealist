@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Idea;
 
 class VoteTest extends TestCase
 {
@@ -20,12 +21,14 @@ class VoteTest extends TestCase
 
         $ideas->each(function ($item, $key) {
             $this->post('/favorite/' . $item->id);
+            $this->post('/upvote/' . $item->id);
         });
 
         $this->signIn();
 
         $ideas2->each(function ($item, $key) {
             $this->post('/favorite/' . $item->id);
+            $this->post('/upvote/' . $item->id);
         });
 
         $response = $this->get('/top')->decodeResponseJson();
@@ -50,7 +53,7 @@ class VoteTest extends TestCase
         factory('App\Idea', 20)->create();
 
         $this->post('/upvote/' . $idea->id);
-
+        
         $idea2 = Idea::where(['id' => $idea->id])->first();
 
         $this->assertEquals(1, $idea2->votes);

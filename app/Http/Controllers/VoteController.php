@@ -41,7 +41,13 @@ class VoteController extends Controller
      */
     public function top()
     {
-        return Idea::with(['userFavorite', 'user'])->whereHas('votes')->orderBy('votes', 'desc')->get();
+        $ideas = Idea::with(['userFavorite', 'user'])->whereHas('votes')->orderBy('votes', 'desc')->get();
+
+        $ideas->each(function ($item, $key) {
+            $item->append(['elapsed_time'])->toArray();
+        });
+
+        return $ideas;
     }
 
     /**
