@@ -31,7 +31,7 @@ class VoteController extends Controller
         $idea->decrement('votes');
         $idea->addVote(auth()->id());
 
-        return $idea->where(['id' => $idea->id])->with('userFavorite')->get();
+        return $idea->where(['id' => $idea->id])->with('userFavorite')->first();
     }
 
     /**
