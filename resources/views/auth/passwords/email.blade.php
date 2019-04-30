@@ -6,10 +6,10 @@
         <div class="hero">
             <div class="hero-body">
                 <div class="columns">
-                    <div class="column is-4 is-offset-4">
+                    <div class="column is-6 is-offset-3">
                         <div class="box">
                             <h1 class="title is-4 has-text-centered "><i class="fas fa-lightbulb"></i>Idealist</h1>
-                            <h3 class="subtitle is-6 has-text-centered">Reset your password!</h3>
+                            <h3 class="subtitle is-6 has-text-centered">Submit a password reset request.</h3>
 
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">

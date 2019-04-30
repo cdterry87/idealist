@@ -18,7 +18,6 @@ class VoteController extends Controller
         $idea->addVote(auth()->id());
 
         return $idea->where(['id' => $idea->id])->with('userFavorite')->first();
-        // return $idea;
     }
 
     /**
