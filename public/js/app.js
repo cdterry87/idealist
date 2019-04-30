@@ -448,7 +448,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Idea',
-  props: ['vote', 'idea', 'favoriteId'],
+  props: ['vote', 'idea', 'user', 'favoriteId'],
   methods: {
     upvote: function upvote(id) {
       axios.post('upvote/' + id).then(function (response) {
@@ -674,9 +674,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         _this2.ideas = _this2.ideas.filter(function (obj) {
           return obj.id !== removeIdea.id;
         });
-      }
+      } // Add the new idea to the array
 
-      console.log('voted', idea); // Add the new idea to the array
 
       _this2.ideas.push(idea);
     });
@@ -2155,7 +2154,12 @@ var render = function() {
         : _vm._l(_vm.ideas, function(idea) {
             return _c("Idea", {
               key: idea.id,
-              attrs: { idea: idea.idea, vote: false, favoriteId: idea.id }
+              attrs: {
+                idea: idea.idea,
+                user: idea.user,
+                vote: false,
+                favoriteId: idea.id
+              }
             })
           })
     ],
@@ -2216,20 +2220,22 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("article", { staticClass: "media" }, [
-    _c("figure", { staticClass: "media-left" }, [
-      _vm.vote == false
-        ? _c("p", { staticClass: "image is-32x32" }, [
-            _c("img", {
-              staticClass: "is-rounded",
-              attrs: { src: "https://bulma.io/images/placeholders/128x128.png" }
-            })
-          ])
-        : _vm._e()
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "media-content" }, [
       _c("div", { staticClass: "content" }, [
-        _vm._v("\n            " + _vm._s(_vm.idea.idea) + "\n        ")
+        _vm._v("\n            " + _vm._s(_vm.idea.idea) + "\n            "),
+        _vm.vote != true
+          ? _c("div", { staticClass: "level" }, [
+              _c("div", { staticClass: "level-left is-size-7 has-text-grey" }, [
+                _vm._v(
+                  "\n                    Submitted by " +
+                    _vm._s(_vm.user.name) +
+                    " on " +
+                    _vm._s(_vm.idea.created_at) +
+                    "\n                "
+                )
+              ])
+            ])
+          : _vm._e()
       ])
     ]),
     _vm._v(" "),
@@ -2334,7 +2340,7 @@ var render = function() {
         : _vm._l(_vm.ideas, function(idea) {
             return _c("Idea", {
               key: idea.id,
-              attrs: { idea: idea, vote: false }
+              attrs: { idea: idea, user: idea.user, vote: false }
             })
           })
     ],
@@ -2506,6 +2512,7 @@ var render = function() {
               key: idea.id,
               attrs: {
                 idea: idea,
+                user: idea.user,
                 favoriteId: idea.user_favorite ? idea.user_favorite.id : false,
                 vote: false
               }
@@ -15746,8 +15753,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/hardenwallace/Sites/idealist/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/hardenwallace/Sites/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

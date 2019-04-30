@@ -5,7 +5,7 @@
         <div v-if="ideas.length == 0" class="has-text-centered">
             There are no top ideas at this time.  Try again later.
         </div>
-        <Idea v-else v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :favoriteId="(idea.user_favorite ? idea.user_favorite.id : false)" :vote="false" />
+        <Idea v-else v-for="idea in sortedIdeas" :key="idea.id" :idea="idea" :user="idea.user" :favoriteId="(idea.user_favorite ? idea.user_favorite.id : false)" :vote="false" />
     </div>
 </template>
 
@@ -47,8 +47,6 @@ export default {
                     return obj.id !== removeIdea.id;
                 });
             }
-
-            console.log('voted', idea)
 
             // Add the new idea to the array
             this.ideas.push(idea)

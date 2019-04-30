@@ -1,13 +1,13 @@
 <template>
     <article class="media">
-        <figure class="media-left">
-            <p class="image is-32x32" v-if="vote == false">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-            </p>
-        </figure>
         <div class="media-content">
             <div class="content">
                 {{ idea.idea }}
+                <div class="level" v-if="vote != true">
+                    <div class="level-left is-size-7 has-text-grey">
+                        Submitted by {{ user.name }} on {{ idea.created_at }}
+                    </div>
+                </div>
             </div>
         </div>
         <div class="media-right">
@@ -37,7 +37,7 @@ import EventBus from './../eventbus'
 
 export default {
     name: 'Idea',
-    props: ['vote', 'idea', 'favoriteId'],
+    props: ['vote', 'idea', 'user', 'favoriteId'],
     methods: {
         upvote(id) {
             axios.post('upvote/' + id)

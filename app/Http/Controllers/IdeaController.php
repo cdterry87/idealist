@@ -14,7 +14,7 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        return Auth::user()->ideas()->orderBy('updated_at', 'desc')->get();
+        return Auth::user()->ideas()->orderBy('updated_at', 'desc')->with('user')->get();
     }
 
     /**

@@ -3,7 +3,7 @@
         <div v-if="ideas.length == 0" class="has-text-centered">
             You have not added any favorites.
         </div>
-        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea.idea" :vote="false" :favoriteId="idea.id" />
+        <Idea v-else v-for="idea in ideas" :key="idea.id" :idea="idea.idea" :user="idea.user" :vote="false" :favoriteId="idea.id" />
     </div>
 </template>
 
