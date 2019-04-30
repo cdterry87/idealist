@@ -5,7 +5,7 @@
                 {{ idea.idea }}
                 <div class="level" v-if="vote != true">
                     <div class="level-left is-size-7 has-text-grey">
-                        Submitted by {{ user.name }} on {{ idea.created_at }}
+                        Submitted by {{ user.name }} on {{ idea.elapsed_time }}
                     </div>
                 </div>
             </div>

@@ -2229,7 +2229,7 @@ var render = function() {
                   "\n                    Submitted by " +
                     _vm._s(_vm.user.name) +
                     " on " +
-                    _vm._s(_vm.idea.created_at) +
+                    _vm._s(_vm.idea.elapsed_time) +
                     "\n                "
                 )
               ])
