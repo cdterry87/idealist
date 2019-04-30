@@ -17,6 +17,7 @@ class CreateHistoryTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id', false, true);
             $table->bigInteger('idea_id', false, true);
+            $table->string('action', 15);
             $table->timestamps();
         });
     }

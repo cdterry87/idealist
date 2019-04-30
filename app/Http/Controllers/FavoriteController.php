@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Idea;
 use App\Favorite;
+use App\History;
 
 class FavoriteController extends Controller
 {

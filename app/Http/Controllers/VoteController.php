@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Idea;
+use App\History;
 use Illuminate\Database\Eloquent\Builder;
 
 class VoteController extends Controller
