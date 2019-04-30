@@ -3,9 +3,9 @@
         <div class="media-content">
             <div class="content">
                 {{ idea.idea }}
-                <div class="level" v-if="vote != true">
+                <div class="level">
                     <div class="level-left is-size-7 has-text-grey">
-                        Submitted by {{ user.name }} on {{ idea.elapsed_time }}
+                        Submitted {{ idea.elapsed_time }} <span v-if="vote != true">by {{ user.name }}</span>
                     </div>
                 </div>
             </div>

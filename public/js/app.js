@@ -2222,19 +2222,18 @@ var render = function() {
     _c("div", { staticClass: "media-content" }, [
       _c("div", { staticClass: "content" }, [
         _vm._v("\n            " + _vm._s(_vm.idea.idea) + "\n            "),
-        _vm.vote != true
-          ? _c("div", { staticClass: "level" }, [
-              _c("div", { staticClass: "level-left is-size-7 has-text-grey" }, [
-                _vm._v(
-                  "\n                    Submitted by " +
-                    _vm._s(_vm.user.name) +
-                    " on " +
-                    _vm._s(_vm.idea.elapsed_time) +
-                    "\n                "
-                )
-              ])
-            ])
-          : _vm._e()
+        _c("div", { staticClass: "level" }, [
+          _c("div", { staticClass: "level-left is-size-7 has-text-grey" }, [
+            _vm._v(
+              "\n                    Submitted " +
+                _vm._s(_vm.idea.elapsed_time) +
+                " "
+            ),
+            _vm.vote != true
+              ? _c("span", [_vm._v("by " + _vm._s(_vm.user.name))])
+              : _vm._e()
+          ])
+        ])
       ])
     ]),
     _vm._v(" "),
