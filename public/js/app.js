@@ -453,6 +453,7 @@ __webpack_require__.r(__webpack_exports__);
     upvote: function upvote(id) {
       axios.post('upvote/' + id).then(function (response) {
         var idea = response.data;
+        console.log('idea', idea);
         _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('ideaVoted', idea);
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -673,8 +674,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         _this2.ideas = _this2.ideas.filter(function (obj) {
           return obj.id !== removeIdea.id;
         });
-      } // Add the new idea to the array
+      }
 
+      console.log('voted', idea); // Add the new idea to the array
 
       _this2.ideas.push(idea);
     });

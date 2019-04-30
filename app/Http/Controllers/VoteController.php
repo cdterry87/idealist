@@ -17,7 +17,8 @@ class VoteController extends Controller
         $idea->increment('votes');
         $idea->addVote(auth()->id());
 
-        return $idea->where(['id' => $idea->id])->with('userFavorite')->get();
+        return $idea->where(['id' => $idea->id])->with('userFavorite')->first();
+        // return $idea;
     }
 
     /**
@@ -40,7 +41,7 @@ class VoteController extends Controller
      */
     public function top()
     {
-        return Idea::with('userFavorite')->get();
+        return Idea::with('userFavorite')->whereHas('votes')->orderBy('votes', 'desc')->get();
     }
 
     /**

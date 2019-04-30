@@ -48,6 +48,8 @@ export default {
                 });
             }
 
+            console.log('voted', idea)
+
             // Add the new idea to the array
             this.ideas.push(idea)
         })
