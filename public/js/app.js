@@ -453,7 +453,6 @@ __webpack_require__.r(__webpack_exports__);
     upvote: function upvote(id) {
       axios.post('upvote/' + id).then(function (response) {
         var idea = response.data;
-        console.log('idea', idea);
         _eventbus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('ideaVoted', idea);
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -2156,7 +2155,7 @@ var render = function() {
               key: idea.id,
               attrs: {
                 idea: idea.idea,
-                user: idea.user,
+                user: idea.idea.user,
                 vote: false,
                 favoriteId: idea.id
               }

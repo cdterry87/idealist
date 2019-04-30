@@ -43,7 +43,6 @@ export default {
             axios.post('upvote/' + id)
             .then(response => {
                 let idea = response.data
-                console.log('idea', idea)
 
                 EventBus.$emit('ideaVoted', idea)
             })
