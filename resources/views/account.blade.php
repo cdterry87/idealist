@@ -10,7 +10,7 @@
             <div class="column">
                 <div class="box">
 
-                    <user />
+                    <account />
 
                 </div>
             </div>

@@ -12,6 +12,13 @@ class History extends Model
         'user_id', 'idea_id', 'action'
     ];
 
+    protected $appends = ['elapsed_time'];
+
+    public function getElapsedTimeAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     public function idea()
     {
         return $this->belongsTo(Idea::class);

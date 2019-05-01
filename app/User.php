@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasMany(Idea::class);
     }
 
+    public function history()
+    {
+        return $this->hasMany(History::class);
+    }
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class);

@@ -39,8 +39,11 @@ class FavoriteController extends Controller
      * @param  \App\Favorite  $favorite
      * @return \App\Favorite
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(Idea $idea, Favorite $favorite)
     {
         $favorite->delete();
+
+        $history = new History;
+        $history->addHistory($idea->id, 'unfavorited');
     }
 }

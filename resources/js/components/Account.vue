@@ -10,7 +10,7 @@
             <tab name="Favorites" icon="fas fa-star">
                 <Favorites />
             </tab>
-            <tab name="History" icon="fas fa-star">
+            <tab name="History" icon="fas fa-history">
                 <History />
             </tab>
         </tabs>
@@ -24,7 +24,7 @@ import Favorites from './Favorites'
 import History from './History'
 
 export default {
-    name: 'User',
+    name: 'Account',
     components: {
         Settings,
         MyIdeas,

@@ -19,9 +19,6 @@ Route::group(['middleware' => 'auth'], function () {
     // Create an idea
     Route::post('/idea', 'IdeaController@store');
 
-    // Load the idea lists
-    Route::get('/ideas/my', 'IdeaController@index');
-
     // Updvote / Downvote an idea
     Route::get('/voteable', 'VoteController@voteable');
     Route::get('/top', 'VoteController@top');
@@ -31,8 +28,14 @@ Route::group(['middleware' => 'auth'], function () {
     // Favorites
     Route::get('/favorite', 'FavoriteController@index');
     Route::post('/favorite/{idea}', 'FavoriteController@store');
-    Route::delete('/favorite/{favorite}', 'FavoriteController@destroy');
+    Route::delete('/favorite/{idea}/{favorite}', 'FavoriteController@destroy');
 
-    //User section
+     // My Ideas
+     Route::get('/ideas/my', 'IdeaController@index');
+
+    // History
+    Route::get('/history', 'HistoryController@index');
+
+    // My Account
     Route::get('/account', 'UserController@index');
 });

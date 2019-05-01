@@ -17,8 +17,8 @@ Vue.component('tabs', Tabs);
 import Tab from './utilities/Tab';
 Vue.component('tab', Tab);
 
-import User from './components/User';
-Vue.component('user', User);
+import Account from './components/Account';
+Vue.component('account', Account);
 
 const app = new Vue({
     el: '#app',
