@@ -46,7 +46,7 @@
                 <div class="field">
                     <div class="control">
                         <div class="field">
-                            <input id="dark" type="checkbox" name="dark" class="switch is-info" checked="checked">
+                            <input id="dark" type="checkbox" v-model="dark" name="dark" class="switch is-info" :checked="(dark ? 'checked' : '')" @click="changeTheme">
                             <label for="dark">Dark Mode</label>
                         </div>
                     </div>
@@ -59,5 +59,38 @@
 <script>
 export default {
     name: 'Settings',
+    data() {
+        return {
+            user: '',
+            dark: false
+        }
+    },
+    methods: {
+        getUser() {
+            axios.get('user')
+            .then(response => {
+                this.user = response.data
+                this.dark = this.user.dark
+            })
+            .catch(function (error) {
+                console.log(error.response.data.error)
+            });
+        },
+        changeTheme() {
+            let dark = !this.dark;
+
+            axios.post('theme', { dark })
+            .then(response => {
+                this.dark = response.data.dark
+                location.reload();
+            })
+            .catch(function (error) {
+                console.log(error.response.data.error)
+            });
+        },
+    },
+    mounted (){
+        this.getUser();
+    }
 }
 </script>

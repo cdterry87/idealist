@@ -38,4 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // My Account
     Route::get('/account', 'UserController@index');
+    Route::get('/user', 'UserController@user');
+    Route::post('/account', 'UserController@store');
+    Route::post('/password', 'UserController@changePassword');
+    Route::post('/theme', 'UserController@changeTheme');
 });

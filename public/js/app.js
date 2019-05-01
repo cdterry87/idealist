@@ -690,7 +690,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Settings'
+  name: 'Settings',
+  data: function data() {
+    return {
+      user: '',
+      dark: false
+    };
+  },
+  methods: {
+    getUser: function getUser() {
+      var _this = this;
+
+      axios.get('user').then(function (response) {
+        _this.user = response.data;
+        _this.dark = _this.user.dark;
+      })["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    },
+    changeTheme: function changeTheme() {
+      var _this2 = this;
+
+      var dark = !this.dark;
+      axios.post('theme', {
+        dark: dark
+      }).then(function (response) {
+        _this2.dark = response.data.dark;
+        location.reload();
+      })["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getUser();
+  }
 });
 
 /***/ }),
@@ -2603,116 +2637,153 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "columns" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "column is-4" }, [
+        _c("h3", { staticClass: "subtitle" }, [_vm._v("Theme Settings")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("div", { staticClass: "control" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.dark,
+                    expression: "dark"
+                  }
+                ],
+                staticClass: "switch is-info",
+                attrs: { id: "dark", type: "checkbox", name: "dark" },
+                domProps: {
+                  checked: _vm.dark ? "checked" : "",
+                  checked: Array.isArray(_vm.dark)
+                    ? _vm._i(_vm.dark, null) > -1
+                    : _vm.dark
+                },
+                on: {
+                  click: _vm.changeTheme,
+                  change: function($event) {
+                    var $$a = _vm.dark,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.dark = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.dark = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.dark = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "dark" } }, [_vm._v("Dark Mode")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "columns" }, [
-        _c("div", { staticClass: "column is-4" }, [
-          _c("h3", { staticClass: "subtitle" }, [_vm._v("Update Profile")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c("label", { staticClass: "label", attrs: { for: "name" } }, [
-              _vm._v("Name")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "control" }, [
-              _c("input", {
-                staticClass: "input",
-                attrs: { type: "text", name: "name", maxlength: "255" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c("label", { staticClass: "label", attrs: { for: "email" } }, [
-              _vm._v("Email Address")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "control" }, [
-              _c("input", {
-                staticClass: "input",
-                attrs: { type: "email", name: "email", maxlength: "255" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c("div", { staticClass: "control has-text-centered" }, [
-              _c("button", { staticClass: "button is-info" }, [
-                _vm._v("Update Profile")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "column is-4" }, [
+      _c("h3", { staticClass: "subtitle" }, [_vm._v("Update Profile")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+          _vm._v("Name")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "column is-4" }, [
-          _c("h3", { staticClass: "subtitle" }, [_vm._v("Change Password")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c("label", { staticClass: "label", attrs: { for: "password" } }, [
-              _vm._v("New Password")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "control" }, [
-              _c("input", {
-                staticClass: "input",
-                attrs: { type: "password", name: "password", id: "password" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c(
-              "label",
-              { staticClass: "label", attrs: { for: "password_confirmation" } },
-              [_vm._v("Confirm Password")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "control" }, [
-              _c("input", {
-                staticClass: "input",
-                attrs: {
-                  type: "password",
-                  name: "password_confirmation",
-                  id: "password_confirmation"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c("div", { staticClass: "control has-text-centered" }, [
-              _c("button", { staticClass: "button is-info" }, [
-                _vm._v("Change Password")
-              ])
-            ])
-          ])
+        _c("div", { staticClass: "control" }, [
+          _c("input", {
+            staticClass: "input",
+            attrs: { type: "text", name: "name", maxlength: "255" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("label", { staticClass: "label", attrs: { for: "email" } }, [
+          _vm._v("Email Address")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "column is-4" }, [
-          _c("h3", { staticClass: "subtitle" }, [_vm._v("Theme Settings")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field" }, [
-            _c("div", { staticClass: "control" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("input", {
-                  staticClass: "switch is-info",
-                  attrs: {
-                    id: "dark",
-                    type: "checkbox",
-                    name: "dark",
-                    checked: "checked"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "dark" } }, [_vm._v("Dark Mode")])
-              ])
-            ])
+        _c("div", { staticClass: "control" }, [
+          _c("input", {
+            staticClass: "input",
+            attrs: { type: "email", name: "email", maxlength: "255" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("div", { staticClass: "control has-text-centered" }, [
+          _c("button", { staticClass: "button is-info" }, [
+            _vm._v("Update Profile")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column is-4" }, [
+      _c("h3", { staticClass: "subtitle" }, [_vm._v("Change Password")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("label", { staticClass: "label", attrs: { for: "password" } }, [
+          _vm._v("New Password")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "control" }, [
+          _c("input", {
+            staticClass: "input",
+            attrs: { type: "password", name: "password", id: "password" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c(
+          "label",
+          { staticClass: "label", attrs: { for: "password_confirmation" } },
+          [_vm._v("Confirm Password")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "control" }, [
+          _c("input", {
+            staticClass: "input",
+            attrs: {
+              type: "password",
+              name: "password_confirmation",
+              id: "password_confirmation"
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("div", { staticClass: "control has-text-centered" }, [
+          _c("button", { staticClass: "button is-info" }, [
+            _vm._v("Change Password")
           ])
         ])
       ])
