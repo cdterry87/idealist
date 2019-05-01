@@ -16,7 +16,7 @@
                     <div class="navbar-dropdown">
                         <a href="/account" class="navbar-item"><i class="fas fa-cogs"></i> My Account</a>
                         <hr class="navbar-divider">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="navbar-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt"></i> Logout

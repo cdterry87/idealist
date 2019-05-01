@@ -1,0 +1,85 @@
+/* Dark mode styles */
+
+.navbar,
+.navbar-dropdown,
+.box {
+  background-color: #777 !important;
+  color: #fff !important;
+}
+
+.navbar h1,
+.navbar h2,
+.navbar h3,
+.navbar h4,
+.navbar h5,
+.navbar a,
+.navbar .navbar-item,
+.navbar .navbar-link,
+.navbar-dropdown h1,
+.navbar-dropdown h2,
+.navbar-dropdown h3,
+.navbar-dropdown h4,
+.navbar-dropdown h5,
+.navbar-dropdown a,
+.navbar-dropdown .navbar-item,
+.navbar-dropdown .navbar-link,
+.box h1,
+.box h2,
+.box h3,
+.box h4,
+.box h5,
+.box a,
+.box .navbar-item,
+.box .navbar-link {
+  color: inherit !important;
+}
+
+.navbar .has-text-grey,
+.navbar-dropdown .has-text-grey,
+.box .has-text-grey {
+  color: #ccc !important;
+}
+
+.navbar .has-text-info,
+.navbar .has-text-link,
+.navbar .navbar-link::after,
+.navbar .tabs li.is-active a,
+.navbar-dropdown .has-text-info,
+.navbar-dropdown .has-text-link,
+.navbar-dropdown .navbar-link::after,
+.navbar-dropdown .tabs li.is-active a,
+.box .has-text-info,
+.box .has-text-link,
+.box .navbar-link::after,
+.box .tabs li.is-active a {
+  border-color: #333 !important;
+  color: #333 !important;
+}
+
+.navbar .button.is-info,
+.navbar-dropdown .button.is-info,
+.box .button.is-info {
+  background-color: #494949;
+}
+
+.navbar .button.is-info:hover,
+.navbar-dropdown .button.is-info:hover,
+.box .button.is-info:hover {
+  background-color: #525252;
+}
+
+.navbar .button.is-info:active,
+.navbar-dropdown .button.is-info:active,
+.box .button.is-info:active {
+  background-color: #464646;
+}
+
+textarea.textarea,
+input.input {
+  background-color: #ccc;
+}
+
+#app {
+  background-color: #333;
+}
+

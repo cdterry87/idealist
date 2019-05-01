@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import "bulma/css/bulma.min.css";
+import "bulma-switch/dist/css/bulma-switch.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 Vue.filter('truncate', function (string, length = 150) {

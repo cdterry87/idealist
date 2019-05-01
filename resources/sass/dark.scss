@@ -1,0 +1,38 @@
+/* Dark mode styles */
+.navbar, .navbar-dropdown, .box {
+    background-color: #777 !important;
+    color: #fff !important;
+
+    h1, h2, h3, h4, h5, a, .navbar-item, .navbar-link{
+        color: inherit !important;
+    }
+
+    .has-text-grey {
+        color: #ccc !important;
+    }
+
+    .has-text-info, .has-text-link, .navbar-link::after, .tabs li.is-active a{
+        border-color: #333 !important;
+        color: #333 !important;
+    }
+
+    .button.is-info {
+        background-color: #494949;
+
+        &:hover {
+            background-color: #525252;
+        }
+
+        &:active {
+            background-color: #464646;
+        }
+    }
+}
+
+textarea.textarea, input.input {
+    background-color: #ccc;
+}
+
+#app{
+    background-color: #333;
+}

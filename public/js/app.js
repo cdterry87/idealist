@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../css-loader/dist/cjs.js??ref--6-1!../../../postcss-loader/src??ref--6-2!./all.min.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+var content = __webpack_require__(/*! !../../../css-loader/dist/cjs.js??ref--7-1!../../../postcss-loader/src??ref--7-2!./all.min.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -637,6 +637,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Settings'
 });
@@ -945,6 +997,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/bulma-switch/dist/css/bulma-switch.min.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/bulma-switch/dist/css/bulma-switch.min.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../css-loader/dist/cjs.js??ref--7-1!../../../postcss-loader/src??ref--7-2!./bulma-switch.min.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/bulma-switch/dist/css/bulma-switch.min.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/bulma/css/bulma.min.css":
 /*!**********************************************!*\
   !*** ./node_modules/bulma/css/bulma.min.css ***!
@@ -953,7 +1035,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js??ref--6-1!../../postcss-loader/src??ref--6-2!./bulma.min.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/bulma/css/bulma.min.css");
+var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js??ref--7-1!../../postcss-loader/src??ref--7-2!./bulma.min.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/bulma/css/bulma.min.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -977,7 +1059,7 @@ if(false) {}
 
 /***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/@fortawesome/fontawesome-free/css/all.min.css":
 /*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/@fortawesome/fontawesome-free/css/all.min.css ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/@fortawesome/fontawesome-free/css/all.min.css ***!
   \****************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1011,9 +1093,24 @@ exports.push([module.i, "/*!\n * Font Awesome Free 5.8.1 by @fontawesome - https
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/bulma-switch/dist/css/bulma-switch.min.css":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/bulma-switch/dist/css/bulma-switch.min.css ***!
+  \*************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "@-webkit-keyframes spinAround{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes spinAround{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}.switch[type=checkbox]{outline:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:inline-block;position:absolute;opacity:0}.switch[type=checkbox]:focus+label::after,.switch[type=checkbox]:focus+label::before,.switch[type=checkbox]:focus+label:after,.switch[type=checkbox]:focus+label:before{outline:1px dotted #b5b5b5}.switch[type=checkbox][disabled]{cursor:not-allowed}.switch[type=checkbox][disabled]+label{opacity:.5}.switch[type=checkbox][disabled]+label::before,.switch[type=checkbox][disabled]+label:before{opacity:.5}.switch[type=checkbox][disabled]+label::after,.switch[type=checkbox][disabled]+label:after{opacity:.5}.switch[type=checkbox][disabled]+label:hover{cursor:not-allowed}.switch[type=checkbox]+label{position:relative;display:initial;font-size:1rem;line-height:initial;padding-left:3.5rem;padding-top:.2rem;cursor:pointer}.switch[type=checkbox]+label::before,.switch[type=checkbox]+label:before{position:absolute;display:block;top:0;left:0;width:3rem;height:1.5rem;border:.1rem solid transparent;border-radius:4px;background:#b5b5b5;content:''}.switch[type=checkbox]+label::after,.switch[type=checkbox]+label:after{display:block;position:absolute;top:.25rem;left:.25rem;width:1rem;height:1rem;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);border-radius:4px;background:#fff;transition:all .25s ease-out;content:''}.switch[type=checkbox].is-rtl+label{padding-left:0;padding-right:3.5rem}.switch[type=checkbox].is-rtl+label::before,.switch[type=checkbox].is-rtl+label:before{left:auto;right:0}.switch[type=checkbox].is-rtl+label::after,.switch[type=checkbox].is-rtl+label:after{left:auto;right:.25rem}.switch[type=checkbox]:checked+label::before,.switch[type=checkbox]:checked+label:before{background:#00d1b2}.switch[type=checkbox]:checked+label::after{left:1.625rem}.switch[type=checkbox]:checked.is-rtl+label::after,.switch[type=checkbox]:checked.is-rtl+label:after{left:auto;right:1.625rem}.switch[type=checkbox].is-outlined+label::before,.switch[type=checkbox].is-outlined+label:before{background-color:transparent;border-color:#b5b5b5}.switch[type=checkbox].is-outlined+label::after,.switch[type=checkbox].is-outlined+label:after{background:#b5b5b5}.switch[type=checkbox].is-outlined:checked+label::before,.switch[type=checkbox].is-outlined:checked+label:before{background-color:transparent;border-color:#00d1b2}.switch[type=checkbox].is-outlined:checked+label::after,.switch[type=checkbox].is-outlined:checked+label:after{background:#00d1b2}.switch[type=checkbox].is-thin+label::before,.switch[type=checkbox].is-thin+label:before{top:.54545rem;height:.375rem}.switch[type=checkbox].is-thin+label::after,.switch[type=checkbox].is-thin+label:after{box-shadow:0 0 3px #7a7a7a}.switch[type=checkbox].is-rounded+label::before,.switch[type=checkbox].is-rounded+label:before{border-radius:24px}.switch[type=checkbox].is-rounded+label::after,.switch[type=checkbox].is-rounded+label:after{border-radius:50%}.switch[type=checkbox].is-small+label{position:relative;display:initial;font-size:.75rem;line-height:initial;padding-left:2.75rem;padding-top:.2rem;cursor:pointer}.switch[type=checkbox].is-small+label::before,.switch[type=checkbox].is-small+label:before{position:absolute;display:block;top:0;left:0;width:2.25rem;height:1.125rem;border:.1rem solid transparent;border-radius:4px;background:#b5b5b5;content:''}.switch[type=checkbox].is-small+label::after,.switch[type=checkbox].is-small+label:after{display:block;position:absolute;top:.25rem;left:.25rem;width:.625rem;height:.625rem;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);border-radius:4px;background:#fff;transition:all .25s ease-out;content:''}.switch[type=checkbox].is-small.is-rtl+label{padding-left:0;padding-right:2.75rem}.switch[type=checkbox].is-small.is-rtl+label::before,.switch[type=checkbox].is-small.is-rtl+label:before{left:auto;right:0}.switch[type=checkbox].is-small.is-rtl+label::after,.switch[type=checkbox].is-small.is-rtl+label:after{left:auto;right:.25rem}.switch[type=checkbox].is-small:checked+label::before,.switch[type=checkbox].is-small:checked+label:before{background:#00d1b2}.switch[type=checkbox].is-small:checked+label::after{left:1.25rem}.switch[type=checkbox].is-small:checked.is-rtl+label::after,.switch[type=checkbox].is-small:checked.is-rtl+label:after{left:auto;right:1.25rem}.switch[type=checkbox].is-small.is-outlined+label::before,.switch[type=checkbox].is-small.is-outlined+label:before{background-color:transparent;border-color:#b5b5b5}.switch[type=checkbox].is-small.is-outlined+label::after,.switch[type=checkbox].is-small.is-outlined+label:after{background:#b5b5b5}.switch[type=checkbox].is-small.is-outlined:checked+label::before,.switch[type=checkbox].is-small.is-outlined:checked+label:before{background-color:transparent;border-color:#00d1b2}.switch[type=checkbox].is-small.is-outlined:checked+label::after,.switch[type=checkbox].is-small.is-outlined:checked+label:after{background:#00d1b2}.switch[type=checkbox].is-small.is-thin+label::before,.switch[type=checkbox].is-small.is-thin+label:before{top:.40909rem;height:.28125rem}.switch[type=checkbox].is-small.is-thin+label::after,.switch[type=checkbox].is-small.is-thin+label:after{box-shadow:0 0 3px #7a7a7a}.switch[type=checkbox].is-small.is-rounded+label::before,.switch[type=checkbox].is-small.is-rounded+label:before{border-radius:24px}.switch[type=checkbox].is-small.is-rounded+label::after,.switch[type=checkbox].is-small.is-rounded+label:after{border-radius:50%}.switch[type=checkbox].is-medium+label{position:relative;display:initial;font-size:1.25rem;line-height:initial;padding-left:4.25rem;padding-top:.2rem;cursor:pointer}.switch[type=checkbox].is-medium+label::before,.switch[type=checkbox].is-medium+label:before{position:absolute;display:block;top:0;left:0;width:3.75rem;height:1.875rem;border:.1rem solid transparent;border-radius:4px;background:#b5b5b5;content:''}.switch[type=checkbox].is-medium+label::after,.switch[type=checkbox].is-medium+label:after{display:block;position:absolute;top:.25rem;left:.25rem;width:1.375rem;height:1.375rem;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);border-radius:4px;background:#fff;transition:all .25s ease-out;content:''}.switch[type=checkbox].is-medium.is-rtl+label{padding-left:0;padding-right:4.25rem}.switch[type=checkbox].is-medium.is-rtl+label::before,.switch[type=checkbox].is-medium.is-rtl+label:before{left:auto;right:0}.switch[type=checkbox].is-medium.is-rtl+label::after,.switch[type=checkbox].is-medium.is-rtl+label:after{left:auto;right:.25rem}.switch[type=checkbox].is-medium:checked+label::before,.switch[type=checkbox].is-medium:checked+label:before{background:#00d1b2}.switch[type=checkbox].is-medium:checked+label::after{left:2rem}.switch[type=checkbox].is-medium:checked.is-rtl+label::after,.switch[type=checkbox].is-medium:checked.is-rtl+label:after{left:auto;right:2rem}.switch[type=checkbox].is-medium.is-outlined+label::before,.switch[type=checkbox].is-medium.is-outlined+label:before{background-color:transparent;border-color:#b5b5b5}.switch[type=checkbox].is-medium.is-outlined+label::after,.switch[type=checkbox].is-medium.is-outlined+label:after{background:#b5b5b5}.switch[type=checkbox].is-medium.is-outlined:checked+label::before,.switch[type=checkbox].is-medium.is-outlined:checked+label:before{background-color:transparent;border-color:#00d1b2}.switch[type=checkbox].is-medium.is-outlined:checked+label::after,.switch[type=checkbox].is-medium.is-outlined:checked+label:after{background:#00d1b2}.switch[type=checkbox].is-medium.is-thin+label::before,.switch[type=checkbox].is-medium.is-thin+label:before{top:.68182rem;height:.46875rem}.switch[type=checkbox].is-medium.is-thin+label::after,.switch[type=checkbox].is-medium.is-thin+label:after{box-shadow:0 0 3px #7a7a7a}.switch[type=checkbox].is-medium.is-rounded+label::before,.switch[type=checkbox].is-medium.is-rounded+label:before{border-radius:24px}.switch[type=checkbox].is-medium.is-rounded+label::after,.switch[type=checkbox].is-medium.is-rounded+label:after{border-radius:50%}.switch[type=checkbox].is-large+label{position:relative;display:initial;font-size:1.5rem;line-height:initial;padding-left:5rem;padding-top:.2rem;cursor:pointer}.switch[type=checkbox].is-large+label::before,.switch[type=checkbox].is-large+label:before{position:absolute;display:block;top:0;left:0;width:4.5rem;height:2.25rem;border:.1rem solid transparent;border-radius:4px;background:#b5b5b5;content:''}.switch[type=checkbox].is-large+label::after,.switch[type=checkbox].is-large+label:after{display:block;position:absolute;top:.25rem;left:.25rem;width:1.75rem;height:1.75rem;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);border-radius:4px;background:#fff;transition:all .25s ease-out;content:''}.switch[type=checkbox].is-large.is-rtl+label{padding-left:0;padding-right:5rem}.switch[type=checkbox].is-large.is-rtl+label::before,.switch[type=checkbox].is-large.is-rtl+label:before{left:auto;right:0}.switch[type=checkbox].is-large.is-rtl+label::after,.switch[type=checkbox].is-large.is-rtl+label:after{left:auto;right:.25rem}.switch[type=checkbox].is-large:checked+label::before,.switch[type=checkbox].is-large:checked+label:before{background:#00d1b2}.switch[type=checkbox].is-large:checked+label::after{left:2.375rem}.switch[type=checkbox].is-large:checked.is-rtl+label::after,.switch[type=checkbox].is-large:checked.is-rtl+label:after{left:auto;right:2.375rem}.switch[type=checkbox].is-large.is-outlined+label::before,.switch[type=checkbox].is-large.is-outlined+label:before{background-color:transparent;border-color:#b5b5b5}.switch[type=checkbox].is-large.is-outlined+label::after,.switch[type=checkbox].is-large.is-outlined+label:after{background:#b5b5b5}.switch[type=checkbox].is-large.is-outlined:checked+label::before,.switch[type=checkbox].is-large.is-outlined:checked+label:before{background-color:transparent;border-color:#00d1b2}.switch[type=checkbox].is-large.is-outlined:checked+label::after,.switch[type=checkbox].is-large.is-outlined:checked+label:after{background:#00d1b2}.switch[type=checkbox].is-large.is-thin+label::before,.switch[type=checkbox].is-large.is-thin+label:before{top:.81818rem;height:.5625rem}.switch[type=checkbox].is-large.is-thin+label::after,.switch[type=checkbox].is-large.is-thin+label:after{box-shadow:0 0 3px #7a7a7a}.switch[type=checkbox].is-large.is-rounded+label::before,.switch[type=checkbox].is-large.is-rounded+label:before{border-radius:24px}.switch[type=checkbox].is-large.is-rounded+label::after,.switch[type=checkbox].is-large.is-rounded+label:after{border-radius:50%}.switch[type=checkbox].is-white:checked+label::before,.switch[type=checkbox].is-white:checked+label:before{background:#fff}.switch[type=checkbox].is-white.is-outlined:checked+label::before,.switch[type=checkbox].is-white.is-outlined:checked+label:before{background-color:transparent;border-color:#fff!important}.switch[type=checkbox].is-white.is-outlined:checked+label::after,.switch[type=checkbox].is-white.is-outlined:checked+label:after{background:#fff}.switch[type=checkbox].is-white.is-thin.is-outlined+label::after,.switch[type=checkbox].is-white.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-white+label::before,.switch[type=checkbox].is-unchecked-white+label:before{background:#fff}.switch[type=checkbox].is-unchecked-white.is-outlined+label::before,.switch[type=checkbox].is-unchecked-white.is-outlined+label:before{background-color:transparent;border-color:#fff!important}.switch[type=checkbox].is-unchecked-white.is-outlined+label::after,.switch[type=checkbox].is-unchecked-white.is-outlined+label:after{background:#fff}.switch[type=checkbox].is-black:checked+label::before,.switch[type=checkbox].is-black:checked+label:before{background:#0a0a0a}.switch[type=checkbox].is-black.is-outlined:checked+label::before,.switch[type=checkbox].is-black.is-outlined:checked+label:before{background-color:transparent;border-color:#0a0a0a!important}.switch[type=checkbox].is-black.is-outlined:checked+label::after,.switch[type=checkbox].is-black.is-outlined:checked+label:after{background:#0a0a0a}.switch[type=checkbox].is-black.is-thin.is-outlined+label::after,.switch[type=checkbox].is-black.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-black+label::before,.switch[type=checkbox].is-unchecked-black+label:before{background:#0a0a0a}.switch[type=checkbox].is-unchecked-black.is-outlined+label::before,.switch[type=checkbox].is-unchecked-black.is-outlined+label:before{background-color:transparent;border-color:#0a0a0a!important}.switch[type=checkbox].is-unchecked-black.is-outlined+label::after,.switch[type=checkbox].is-unchecked-black.is-outlined+label:after{background:#0a0a0a}.switch[type=checkbox].is-light:checked+label::before,.switch[type=checkbox].is-light:checked+label:before{background:#f5f5f5}.switch[type=checkbox].is-light.is-outlined:checked+label::before,.switch[type=checkbox].is-light.is-outlined:checked+label:before{background-color:transparent;border-color:#f5f5f5!important}.switch[type=checkbox].is-light.is-outlined:checked+label::after,.switch[type=checkbox].is-light.is-outlined:checked+label:after{background:#f5f5f5}.switch[type=checkbox].is-light.is-thin.is-outlined+label::after,.switch[type=checkbox].is-light.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-light+label::before,.switch[type=checkbox].is-unchecked-light+label:before{background:#f5f5f5}.switch[type=checkbox].is-unchecked-light.is-outlined+label::before,.switch[type=checkbox].is-unchecked-light.is-outlined+label:before{background-color:transparent;border-color:#f5f5f5!important}.switch[type=checkbox].is-unchecked-light.is-outlined+label::after,.switch[type=checkbox].is-unchecked-light.is-outlined+label:after{background:#f5f5f5}.switch[type=checkbox].is-dark:checked+label::before,.switch[type=checkbox].is-dark:checked+label:before{background:#363636}.switch[type=checkbox].is-dark.is-outlined:checked+label::before,.switch[type=checkbox].is-dark.is-outlined:checked+label:before{background-color:transparent;border-color:#363636!important}.switch[type=checkbox].is-dark.is-outlined:checked+label::after,.switch[type=checkbox].is-dark.is-outlined:checked+label:after{background:#363636}.switch[type=checkbox].is-dark.is-thin.is-outlined+label::after,.switch[type=checkbox].is-dark.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-dark+label::before,.switch[type=checkbox].is-unchecked-dark+label:before{background:#363636}.switch[type=checkbox].is-unchecked-dark.is-outlined+label::before,.switch[type=checkbox].is-unchecked-dark.is-outlined+label:before{background-color:transparent;border-color:#363636!important}.switch[type=checkbox].is-unchecked-dark.is-outlined+label::after,.switch[type=checkbox].is-unchecked-dark.is-outlined+label:after{background:#363636}.switch[type=checkbox].is-primary:checked+label::before,.switch[type=checkbox].is-primary:checked+label:before{background:#00d1b2}.switch[type=checkbox].is-primary.is-outlined:checked+label::before,.switch[type=checkbox].is-primary.is-outlined:checked+label:before{background-color:transparent;border-color:#00d1b2!important}.switch[type=checkbox].is-primary.is-outlined:checked+label::after,.switch[type=checkbox].is-primary.is-outlined:checked+label:after{background:#00d1b2}.switch[type=checkbox].is-primary.is-thin.is-outlined+label::after,.switch[type=checkbox].is-primary.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-primary+label::before,.switch[type=checkbox].is-unchecked-primary+label:before{background:#00d1b2}.switch[type=checkbox].is-unchecked-primary.is-outlined+label::before,.switch[type=checkbox].is-unchecked-primary.is-outlined+label:before{background-color:transparent;border-color:#00d1b2!important}.switch[type=checkbox].is-unchecked-primary.is-outlined+label::after,.switch[type=checkbox].is-unchecked-primary.is-outlined+label:after{background:#00d1b2}.switch[type=checkbox].is-link:checked+label::before,.switch[type=checkbox].is-link:checked+label:before{background:#3273dc}.switch[type=checkbox].is-link.is-outlined:checked+label::before,.switch[type=checkbox].is-link.is-outlined:checked+label:before{background-color:transparent;border-color:#3273dc!important}.switch[type=checkbox].is-link.is-outlined:checked+label::after,.switch[type=checkbox].is-link.is-outlined:checked+label:after{background:#3273dc}.switch[type=checkbox].is-link.is-thin.is-outlined+label::after,.switch[type=checkbox].is-link.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-link+label::before,.switch[type=checkbox].is-unchecked-link+label:before{background:#3273dc}.switch[type=checkbox].is-unchecked-link.is-outlined+label::before,.switch[type=checkbox].is-unchecked-link.is-outlined+label:before{background-color:transparent;border-color:#3273dc!important}.switch[type=checkbox].is-unchecked-link.is-outlined+label::after,.switch[type=checkbox].is-unchecked-link.is-outlined+label:after{background:#3273dc}.switch[type=checkbox].is-info:checked+label::before,.switch[type=checkbox].is-info:checked+label:before{background:#209cee}.switch[type=checkbox].is-info.is-outlined:checked+label::before,.switch[type=checkbox].is-info.is-outlined:checked+label:before{background-color:transparent;border-color:#209cee!important}.switch[type=checkbox].is-info.is-outlined:checked+label::after,.switch[type=checkbox].is-info.is-outlined:checked+label:after{background:#209cee}.switch[type=checkbox].is-info.is-thin.is-outlined+label::after,.switch[type=checkbox].is-info.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-info+label::before,.switch[type=checkbox].is-unchecked-info+label:before{background:#209cee}.switch[type=checkbox].is-unchecked-info.is-outlined+label::before,.switch[type=checkbox].is-unchecked-info.is-outlined+label:before{background-color:transparent;border-color:#209cee!important}.switch[type=checkbox].is-unchecked-info.is-outlined+label::after,.switch[type=checkbox].is-unchecked-info.is-outlined+label:after{background:#209cee}.switch[type=checkbox].is-success:checked+label::before,.switch[type=checkbox].is-success:checked+label:before{background:#23d160}.switch[type=checkbox].is-success.is-outlined:checked+label::before,.switch[type=checkbox].is-success.is-outlined:checked+label:before{background-color:transparent;border-color:#23d160!important}.switch[type=checkbox].is-success.is-outlined:checked+label::after,.switch[type=checkbox].is-success.is-outlined:checked+label:after{background:#23d160}.switch[type=checkbox].is-success.is-thin.is-outlined+label::after,.switch[type=checkbox].is-success.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-success+label::before,.switch[type=checkbox].is-unchecked-success+label:before{background:#23d160}.switch[type=checkbox].is-unchecked-success.is-outlined+label::before,.switch[type=checkbox].is-unchecked-success.is-outlined+label:before{background-color:transparent;border-color:#23d160!important}.switch[type=checkbox].is-unchecked-success.is-outlined+label::after,.switch[type=checkbox].is-unchecked-success.is-outlined+label:after{background:#23d160}.switch[type=checkbox].is-warning:checked+label::before,.switch[type=checkbox].is-warning:checked+label:before{background:#ffdd57}.switch[type=checkbox].is-warning.is-outlined:checked+label::before,.switch[type=checkbox].is-warning.is-outlined:checked+label:before{background-color:transparent;border-color:#ffdd57!important}.switch[type=checkbox].is-warning.is-outlined:checked+label::after,.switch[type=checkbox].is-warning.is-outlined:checked+label:after{background:#ffdd57}.switch[type=checkbox].is-warning.is-thin.is-outlined+label::after,.switch[type=checkbox].is-warning.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-warning+label::before,.switch[type=checkbox].is-unchecked-warning+label:before{background:#ffdd57}.switch[type=checkbox].is-unchecked-warning.is-outlined+label::before,.switch[type=checkbox].is-unchecked-warning.is-outlined+label:before{background-color:transparent;border-color:#ffdd57!important}.switch[type=checkbox].is-unchecked-warning.is-outlined+label::after,.switch[type=checkbox].is-unchecked-warning.is-outlined+label:after{background:#ffdd57}.switch[type=checkbox].is-danger:checked+label::before,.switch[type=checkbox].is-danger:checked+label:before{background:#ff3860}.switch[type=checkbox].is-danger.is-outlined:checked+label::before,.switch[type=checkbox].is-danger.is-outlined:checked+label:before{background-color:transparent;border-color:#ff3860!important}.switch[type=checkbox].is-danger.is-outlined:checked+label::after,.switch[type=checkbox].is-danger.is-outlined:checked+label:after{background:#ff3860}.switch[type=checkbox].is-danger.is-thin.is-outlined+label::after,.switch[type=checkbox].is-danger.is-thin.is-outlined+label:after{box-shadow:none}.switch[type=checkbox].is-unchecked-danger+label::before,.switch[type=checkbox].is-unchecked-danger+label:before{background:#ff3860}.switch[type=checkbox].is-unchecked-danger.is-outlined+label::before,.switch[type=checkbox].is-unchecked-danger.is-outlined+label:before{background-color:transparent;border-color:#ff3860!important}.switch[type=checkbox].is-unchecked-danger.is-outlined+label::after,.switch[type=checkbox].is-unchecked-danger.is-outlined+label:after{background:#ff3860}", ""]);
+
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/bulma/css/bulma.min.css":
 /*!******************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/bulma/css/bulma.min.css ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/bulma/css/bulma.min.css ***!
   \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2513,7 +2610,113 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h2", [_vm._v("Settings")])])
+    return _c("div", [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-4" }, [
+          _c("h3", { staticClass: "subtitle" }, [_vm._v("Update Profile")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+              _vm._v("Name")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "text", name: "name", maxlength: "255" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label", attrs: { for: "email" } }, [
+              _vm._v("Email Address")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "email", name: "email", maxlength: "255" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("div", { staticClass: "control has-text-centered" }, [
+              _c("button", { staticClass: "button is-info" }, [
+                _vm._v("Update Profile")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-4" }, [
+          _c("h3", { staticClass: "subtitle" }, [_vm._v("Change Password")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label", attrs: { for: "password" } }, [
+              _vm._v("New Password")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input",
+                attrs: { type: "password", name: "password", id: "password" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c(
+              "label",
+              { staticClass: "label", attrs: { for: "password_confirmation" } },
+              [_vm._v("Confirm Password")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input",
+                attrs: {
+                  type: "password",
+                  name: "password_confirmation",
+                  id: "password_confirmation"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("div", { staticClass: "control has-text-centered" }, [
+              _c("button", { staticClass: "button is-info" }, [
+                _vm._v("Change Password")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-4" }, [
+          _c("h3", { staticClass: "subtitle" }, [_vm._v("Theme Settings")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("div", { staticClass: "control" }, [
+              _c("div", { staticClass: "field" }, [
+                _c("input", {
+                  staticClass: "switch is-info",
+                  attrs: {
+                    id: "dark",
+                    type: "checkbox",
+                    name: "dark",
+                    checked: "checked"
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "dark" } }, [_vm._v("Dark Mode")])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -14930,12 +15133,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bulma_css_bulma_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bulma/css/bulma.min.css */ "./node_modules/bulma/css/bulma.min.css");
 /* harmony import */ var bulma_css_bulma_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bulma_css_bulma_min_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
-/* harmony import */ var _utilities_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utilities/Tabs */ "./resources/js/utilities/Tabs.vue");
-/* harmony import */ var _utilities_Tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utilities/Tab */ "./resources/js/utilities/Tab.vue");
+/* harmony import */ var bulma_switch_dist_css_bulma_switch_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bulma-switch/dist/css/bulma-switch.min.css */ "./node_modules/bulma-switch/dist/css/bulma-switch.min.css");
+/* harmony import */ var bulma_switch_dist_css_bulma_switch_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bulma_switch_dist_css_bulma_switch_min_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
+/* harmony import */ var _utilities_Tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utilities/Tabs */ "./resources/js/utilities/Tabs.vue");
+/* harmony import */ var _utilities_Tab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utilities/Tab */ "./resources/js/utilities/Tab.vue");
 /* harmony import */ var _components_Account__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Account */ "./resources/js/components/Account.vue");
+
 
 
 
@@ -14949,15 +15155,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('truncate', function (string) 
 });
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabs', _utilities_Tabs__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tabs', _utilities_Tabs__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tab', _utilities_Tab__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('tab', _utilities_Tab__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('account', _components_Account__WEBPACK_IMPORTED_MODULE_7__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   components: {
-    App: _components_App__WEBPACK_IMPORTED_MODULE_3__["default"]
+    App: _components_App__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
@@ -15819,14 +16025,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/dark.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/dark.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!****************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/dark.scss ./resources/sass/app.scss ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/dark.scss */"./resources/sass/dark.scss");
 module.exports = __webpack_require__(/*! /Users/chaset/www/laravel/idealist/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
