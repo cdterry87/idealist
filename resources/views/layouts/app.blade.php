@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Idealist - Where great ideas come to light!</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    @if (Auth::user()->dark)
+    @if (Auth::user() and Auth::user()->dark)
         <link href="{{ mix('css/dark.css') }}" rel="stylesheet">
     @endif
 </head>
