@@ -689,12 +689,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Settings',
   data: function data() {
     return {
       user: '',
-      dark: false
+      dark: false,
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: ''
     };
   },
   methods: {
@@ -704,18 +712,49 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('user').then(function (response) {
         _this.user = response.data;
         _this.dark = _this.user.dark;
+        _this.name = _this.user.name;
+        _this.email = _this.user.email;
       })["catch"](function (error) {
         console.log(error.response.data.error);
       });
     },
-    changeTheme: function changeTheme() {
+    updateProfile: function updateProfile() {
       var _this2 = this;
 
+      var name = this.name;
+      var email = this.email;
+      axios.post('/profile', {
+        name: name,
+        email: email
+      }).then(function (response) {
+        _this2.name = response.data.name;
+        _this2.email = response.data.email;
+      })["catch"](function (error) {
+        console.log(error.response.data.error);
+      });
+    },
+    updatePassword: function updatePassword() {
+      var password = this.password;
+      var password_confirmation = this.password_confirmation;
+
+      if (password === password_confirmation) {
+        axios.post('/password', {
+          password: password
+        }).then(function (response) {
+          console.log('Password updated!');
+        })["catch"](function (error) {
+          console.log(error.response.data.error);
+        });
+      }
+    },
+    updateTheme: function updateTheme() {
+      var _this3 = this;
+
       var dark = !this.dark;
-      axios.post('theme', {
+      axios.post('/theme', {
         dark: dark
       }).then(function (response) {
-        _this2.dark = response.data.dark;
+        _this3.dark = response.data.dark;
         location.reload();
       })["catch"](function (error) {
         console.log(error.response.data.error);
@@ -2639,9 +2678,176 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "columns" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "column is-4" }, [
+        _c("h3", { staticClass: "subtitle" }, [_vm._v("Update Profile")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            attrs: { action: "/account", method: "POST" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.updateProfile($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+                _vm._v("Name")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: { type: "text", name: "name", maxlength: "255" },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label", attrs: { for: "email" } }, [
+                _vm._v("Email Address")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: { type: "email", name: "email", maxlength: "255" },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
+      ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "column is-4" }, [
+        _c("h3", { staticClass: "subtitle" }, [_vm._v("Change Password")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            attrs: { action: "/password", method: "POST" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.updatePassword($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "field" }, [
+              _c(
+                "label",
+                { staticClass: "label", attrs: { for: "password" } },
+                [_vm._v("New Password")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: { type: "password", name: "password", id: "password" },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "label",
+                  attrs: { for: "password_confirmation" }
+                },
+                [_vm._v("Confirm Password")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password_confirmation,
+                      expression: "password_confirmation"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: {
+                    type: "password",
+                    name: "password_confirmation",
+                    id: "password_confirmation"
+                  },
+                  domProps: { value: _vm.password_confirmation },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password_confirmation = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1)
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "column is-4" }, [
         _c("h3", { staticClass: "subtitle" }, [_vm._v("Theme Settings")]),
@@ -2667,7 +2873,7 @@ var render = function() {
                     : _vm.dark
                 },
                 on: {
-                  click: _vm.changeTheme,
+                  click: _vm.updateTheme,
                   change: function($event) {
                     var $$a = _vm.dark,
                       $$el = $event.target,
@@ -2703,40 +2909,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-4" }, [
-      _c("h3", { staticClass: "subtitle" }, [_vm._v("Update Profile")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c("label", { staticClass: "label", attrs: { for: "name" } }, [
-          _vm._v("Name")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "text", name: "name", maxlength: "255" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c("label", { staticClass: "label", attrs: { for: "email" } }, [
-          _vm._v("Email Address")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "email", name: "email", maxlength: "255" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c("div", { staticClass: "control has-text-centered" }, [
-          _c("button", { staticClass: "button is-info" }, [
-            _vm._v("Update Profile")
-          ])
+    return _c("div", { staticClass: "field" }, [
+      _c("div", { staticClass: "control has-text-centered" }, [
+        _c("button", { staticClass: "button is-info" }, [
+          _vm._v("Update Profile")
         ])
       ])
     ])
@@ -2745,46 +2921,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-4" }, [
-      _c("h3", { staticClass: "subtitle" }, [_vm._v("Change Password")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c("label", { staticClass: "label", attrs: { for: "password" } }, [
-          _vm._v("New Password")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c("input", {
-            staticClass: "input",
-            attrs: { type: "password", name: "password", id: "password" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c(
-          "label",
-          { staticClass: "label", attrs: { for: "password_confirmation" } },
-          [_vm._v("Confirm Password")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c("input", {
-            staticClass: "input",
-            attrs: {
-              type: "password",
-              name: "password_confirmation",
-              id: "password_confirmation"
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c("div", { staticClass: "control has-text-centered" }, [
-          _c("button", { staticClass: "button is-info" }, [
-            _vm._v("Change Password")
-          ])
+    return _c("div", { staticClass: "field" }, [
+      _c("div", { staticClass: "control has-text-centered" }, [
+        _c("button", { staticClass: "button is-info" }, [
+          _vm._v("Change Password")
         ])
       ])
     ])
