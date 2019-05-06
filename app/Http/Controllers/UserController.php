@@ -35,6 +35,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->save();
 
+        $user->message = 'Successfully updated profile.';
+
         return $user;
     }
 
@@ -43,6 +45,8 @@ class UserController extends Controller
         $user = Auth::user();
         $user->password = Hash::make($request->password);
         $user->save();
+
+        $user->message = 'Successfully updated password.';
 
         return $user;
     }

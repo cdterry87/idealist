@@ -33,6 +33,8 @@ class IdeaController extends Controller
         $history = new History;
         $history->addHistory($idea->id, 'created');
 
+        $idea->message = 'Successfully created your idea!';
+
         return $idea;
     }
 }

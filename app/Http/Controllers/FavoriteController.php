@@ -30,6 +30,8 @@ class FavoriteController extends Controller
         $history = new History;
         $history->addHistory($idea->id, 'favorited');
 
+        $idea->message = "Idea favorited!";
+
         return $idea->addFavorite(auth()->id());
     }
 
@@ -45,5 +47,9 @@ class FavoriteController extends Controller
 
         $history = new History;
         $history->addHistory($idea->id, 'unfavorited');
+
+        $idea->message = "Idea unfavorited!";
+
+        return $idea;
     }
 }
