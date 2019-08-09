@@ -1,5 +1,9 @@
 /* Dark mode styles */
-.navbar, .navbar-dropdown, .box {
+html body #app, html body {
+    background: #444 !important;
+}
+
+html body .navbar, html body .navbar-dropdown, html body .box {
     background-color: #777 !important;
     color: #fff !important;
 

@@ -1,76 +1,81 @@
 /* Dark mode styles */
 
-.navbar,
-.navbar-dropdown,
-.box {
+html body #app,
+html body {
+  background: #444 !important;
+}
+
+html body .navbar,
+html body .navbar-dropdown,
+html body .box {
   background-color: #777 !important;
   color: #fff !important;
 }
 
-.navbar h1,
-.navbar h2,
-.navbar h3,
-.navbar h4,
-.navbar h5,
-.navbar a,
-.navbar .navbar-item,
-.navbar .navbar-link,
-.navbar-dropdown h1,
-.navbar-dropdown h2,
-.navbar-dropdown h3,
-.navbar-dropdown h4,
-.navbar-dropdown h5,
-.navbar-dropdown a,
-.navbar-dropdown .navbar-item,
-.navbar-dropdown .navbar-link,
-.box h1,
-.box h2,
-.box h3,
-.box h4,
-.box h5,
-.box a,
-.box .navbar-item,
-.box .navbar-link {
+html body .navbar h1,
+html body .navbar h2,
+html body .navbar h3,
+html body .navbar h4,
+html body .navbar h5,
+html body .navbar a,
+html body .navbar .navbar-item,
+html body .navbar .navbar-link,
+html body .navbar-dropdown h1,
+html body .navbar-dropdown h2,
+html body .navbar-dropdown h3,
+html body .navbar-dropdown h4,
+html body .navbar-dropdown h5,
+html body .navbar-dropdown a,
+html body .navbar-dropdown .navbar-item,
+html body .navbar-dropdown .navbar-link,
+html body .box h1,
+html body .box h2,
+html body .box h3,
+html body .box h4,
+html body .box h5,
+html body .box a,
+html body .box .navbar-item,
+html body .box .navbar-link {
   color: inherit !important;
 }
 
-.navbar .has-text-grey,
-.navbar-dropdown .has-text-grey,
-.box .has-text-grey {
+html body .navbar .has-text-grey,
+html body .navbar-dropdown .has-text-grey,
+html body .box .has-text-grey {
   color: #ccc !important;
 }
 
-.navbar .has-text-info,
-.navbar .has-text-link,
-.navbar .navbar-link::after,
-.navbar .tabs li.is-active a,
-.navbar-dropdown .has-text-info,
-.navbar-dropdown .has-text-link,
-.navbar-dropdown .navbar-link::after,
-.navbar-dropdown .tabs li.is-active a,
-.box .has-text-info,
-.box .has-text-link,
-.box .navbar-link::after,
-.box .tabs li.is-active a {
+html body .navbar .has-text-info,
+html body .navbar .has-text-link,
+html body .navbar .navbar-link::after,
+html body .navbar .tabs li.is-active a,
+html body .navbar-dropdown .has-text-info,
+html body .navbar-dropdown .has-text-link,
+html body .navbar-dropdown .navbar-link::after,
+html body .navbar-dropdown .tabs li.is-active a,
+html body .box .has-text-info,
+html body .box .has-text-link,
+html body .box .navbar-link::after,
+html body .box .tabs li.is-active a {
   border-color: #333 !important;
   color: #333 !important;
 }
 
-.navbar .button.is-info,
-.navbar-dropdown .button.is-info,
-.box .button.is-info {
+html body .navbar .button.is-info,
+html body .navbar-dropdown .button.is-info,
+html body .box .button.is-info {
   background-color: #494949;
 }
 
-.navbar .button.is-info:hover,
-.navbar-dropdown .button.is-info:hover,
-.box .button.is-info:hover {
+html body .navbar .button.is-info:hover,
+html body .navbar-dropdown .button.is-info:hover,
+html body .box .button.is-info:hover {
   background-color: #525252;
 }
 
-.navbar .button.is-info:active,
-.navbar-dropdown .button.is-info:active,
-.box .button.is-info:active {
+html body .navbar .button.is-info:active,
+html body .navbar-dropdown .button.is-info:active,
+html body .box .button.is-info:active {
   background-color: #464646;
 }
 

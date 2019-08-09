@@ -5,7 +5,7 @@ body {
 
 body,
 #app {
-  background: repeating-linear-gradient(206deg, rgba(69, 41, 209, 0.4) 0px, rgba(69, 41, 209, 0.4) 62px, rgba(195, 41, 209, 0.4) 62px, rgba(195, 41, 209, 0.4) 124px, rgba(209, 41, 97, 0.4) 124px, rgba(209, 41, 97, 0.4) 186px, rgba(209, 111, 41, 0.4) 186px, rgba(209, 111, 41, 0.4) 248px, rgba(181, 209, 41, 0.4) 248px, rgba(181, 209, 41, 0.4) 310px, rgba(55, 209, 41, 0.4) 310px, rgba(55, 209, 41, 0.4) 372px, rgba(41, 209, 153, 0.4) 372px, rgba(41, 209, 153, 0.4) 434px, rgba(41, 139, 209, 0.4) 434px, rgba(41, 139, 209, 0.4) 496px), repeating-linear-gradient(285deg, rgba(197, 248, 165, 0.56) 0px, rgba(197, 248, 165, 0.56) 80px, rgba(165, 248, 204, 0.56) 80px, rgba(165, 248, 204, 0.56) 160px, rgba(165, 220, 248, 0.56) 160px, rgba(165, 220, 248, 0.56) 240px, rgba(181, 165, 248, 0.56) 240px, rgba(181, 165, 248, 0.56) 320px, rgba(248, 165, 244, 0.56) 320px, rgba(248, 165, 244, 0.56) 400px, rgba(248, 165, 173, 0.56) 400px, rgba(248, 165, 173, 0.56) 480px, rgba(248, 228, 165, 0.56) 480px, rgba(248, 228, 165, 0.56) 560px), repeating-linear-gradient(45deg, #969696, #c7c7c7, #525252 165px);
+  background: #eee;
 }
 
 i.fas {
